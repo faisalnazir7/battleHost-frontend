@@ -1,0 +1,8 @@
+.Navbar,.Search{
+    display: flex;
+}
+.dark .Navbar{
+    --tw-bg-opacity: 1;
+    background-color: rgb(31 41 55/var(--tw-bg-opacity));
+}
+
