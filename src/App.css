@@ -2,3 +2,9 @@
   margin: 0;
   padding: 0;
 }
+.dark{
+  --tw-bg-opacity: 1;
+    background-color: rgb(15 23 42/var(--tw-bg-opacity));
+  /* background-color: black; */
+  color: white;
+}
