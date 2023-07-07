@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './Navbar.css'
-
+import { Link } from 'react-router-dom';
 
 export default function Navbar() {
   const[isOpen,setOpen]=useState(false);
@@ -21,12 +21,12 @@ export default function Navbar() {
 </svg>
 {isOpen && (
 <div className="MoreOptions bg-gray-200 absolute top-16 left-64 rounded w-20 h-16 pt-1 text-center ">
-  <button>Log In</button>
-  <button>Register</button>
+ <Link to='/signin'><button>Log In</button></Link> 
+  <Link to='/signup'><button>Register</button></Link>
 </div>
 )}
-        <button className='LogInbtn rounded-2xl border border-slate-300 hover:border-slate-400 h-12 w-20 bg-white ml-auto mr-6 mt-3.5'>Log In</button>
-        <button className='RegisterBtn rounded-2xl border border-slate-300 hover:border-slate-400 h-12 w-20 bg-white items-end mr-8 mt-3.5'>Register</button>
+        <Link to='/signin' className='ml-auto '><button className='LogInbtn rounded-2xl border border-slate-300 hover:border-slate-400 h-12 w-20 bg-white ml-auto mr-6 mt-3.5'>Log In</button></Link>
+        <Link to='/signup' className='mr-8'><button className='RegisterBtn rounded-2xl border border-slate-300 hover:border-slate-400 h-12 w-20 bg-white items-end mr-8 mt-3.5'>Register</button></Link>
     </div>
   )
 }

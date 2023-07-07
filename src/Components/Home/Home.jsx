@@ -7,7 +7,7 @@ export default function DefaultCarousel() {
   return (
     <>
     <Navbar/>
-    <Carousel>
+    {/* <Carousel>
       <img
         alt="..."
         src="https://flowbite.com/docs/images/carousel/carousel-1.svg"
@@ -28,7 +28,7 @@ export default function DefaultCarousel() {
         alt="..."
         src="https://flowbite.com/docs/images/carousel/carousel-5.svg"
       />
-    </Carousel>
+    </Carousel> */}
     </>
   )
 }
