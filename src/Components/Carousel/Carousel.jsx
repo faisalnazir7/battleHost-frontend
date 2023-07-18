@@ -1,17 +1,8 @@
-// import React from 'react' 
- 
-// export default function Carousel() { 
-//   return ( 
-//     <div>Carousel</div> 
-//   ) 
-// } 
- 
- 
  
 import React, { useRef, useState } from 'react'; 
-// Import Swiper React components 
+
 import { Swiper, SwiperSlide } from 'swiper/react'; 
-// Import Swiper styles 
+
 import 'swiper/css'; 
 import 'swiper/css/navigation'; 
 import img from '../../assets/wp1842455.jpg';
