@@ -6,15 +6,15 @@ function UserProfile() {
   return (
     <div className='UserProfile'>
     <Navbar/>
-    <div className="profile_body mx-5 my-5">
+    <div className="profile_body mx-10 mb-10px px-10 py-2 border-2 rounded-md shadow-md">
     <div className="profile_header">
     <h1 className='text-3xl'>Profile Settings</h1>
     </div>
-    
+    <div className='mb-5'>
 <form className='mt-8'>
 
 <div className="flex items-center space-x-4 mb-5">
-    <img className="w-100 h-100 rounded-full cursor-pointer" src={SampleUser} alt="" onClick={()=>image.current.click()}/>
+    <img className="w-20 h-20 rounded-full cursor-pointer" src={SampleUser} alt="" onClick={()=>image.current.click()}/>
     <input type="file" accept="image/*" style={{display:'none'}} ref={image}/>
 
     <div className="font-medium dark:text-white text-3xl">
@@ -53,9 +53,9 @@ function UserProfile() {
    
     <label for="remember" className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">The updated changes will take effect immediately on clicking the button below.</label>
 </div>
-<button type="submit" className="text-white mb-2 bg-sky-800 hover:bg-sky-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-fit-content sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-sky-800 dark:focus:ring-blue-800">Update</button>
+<button type="submit" className="text-white bg-sky-800 hover:bg-sky-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-fit-content sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-sky-800 dark:focus:ring-blue-800">Update</button>
 </form>
-
+</div> 
     </div>
     </div>
   )
