@@ -5,6 +5,7 @@ import SignIn from './Components/SignIn/SignIn';
 import SignUp from './Components/SignUp/SignUp';
 import Dasboard from './Components/Dasboard/Dasboard';
 import UserProfile from './Components/UserProfile/UserProfile';
+import Profile from './Components/Profile/Profile';
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
         <Route path="/signin" element={<SignIn/>}></Route>
         <Route path="/signup" element={<SignUp/>}></Route>
         <Route path="/dashboard" element={<Dasboard/>}></Route>
+        <Route path="/profile" element={<Profile/>}></Route>
         <Route path="/userprofile" element={<UserProfile/>}></Route>
      </Routes>
       

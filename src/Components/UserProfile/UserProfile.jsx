@@ -4,24 +4,28 @@ import SampleUser from '../../assets/sampleuser.png'
 function UserProfile() {
     const image=useRef();
   return (
-    <div className='UserProfile'>
+    <>
     <Navbar/>
-    <div className="profile_body mx-10 mb-10px px-10 py-2 border-2 rounded-md shadow-md">
+    <div className='UserProfile flex'>
+    <div className="userprofileLeft">
+    <div className="mt-20 ml-40 mb-5 ">
+    <img className="w-72  shadow-lg rounded-full cursor-pointer" src={SampleUser} alt="" onClick={()=>image.current.click()}/>
+    <input type="file" accept="image/*" style={{display:'none'}} ref={image}/>
+
+    <div className="font-medium dark:text-white text-3xl mt-12 text-center">
+        <div>Jese Leos</div>
+        <div className="text-sm text-gray-500 dark:text-gray-400">Joined in August 2014</div>
+    </div>
+</div>
+    </div>
+    <div className="profile_body  mb-10px px-10 py-2 border-2 rounded-md shadow-md m-auto mr-[10rem] mt-8 w-[45rem]">
     <div className="profile_header">
     <h1 className='text-3xl'>Profile Settings</h1>
     </div>
     <div className='mb-5'>
 <form className='mt-8'>
 
-<div className="flex items-center space-x-4 mb-5">
-    <img className="w-20 h-20 rounded-full cursor-pointer" src={SampleUser} alt="" onClick={()=>image.current.click()}/>
-    <input type="file" accept="image/*" style={{display:'none'}} ref={image}/>
 
-    <div className="font-medium dark:text-white text-3xl">
-        <div>Jese Leos</div>
-        <div className="text-sm text-gray-500 dark:text-gray-400">Joined in August 2014</div>
-    </div>
-</div>
 
 <div className="grid gap-6 mb-6 md:grid-cols-2">
     <div>
@@ -54,6 +58,7 @@ function UserProfile() {
 </div> 
     </div>
     </div>
+    </>
   )
 }
 
