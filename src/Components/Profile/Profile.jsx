@@ -2,6 +2,7 @@
 import React from 'react';
 import Navbar from '../Navbar/Navbar';
 // import SideNav from '../SideNav/Sidenav'; 
+import { Link } from 'react-router-dom';
 
 const Profile = () => {
   return (
@@ -17,7 +18,9 @@ const Profile = () => {
             alt="Avatar"
 
           />
+          <Link to='/userprofile'>
           <button className="editbtn mx-14 mt-10 rounded-full rounded-2xl bg-sky-500 shadow-2xl bg-cover w-80 h-16 shadow-gray-400 hover:bg-sky-400 font-sans font-semibold text-white text-xl">Edit Profile</button>
+          </Link>
         </div>
         <div className="RightProfile m-auto mr-[10rem]">
         <h1 className="text-3xl mt-4 ml-8 hover:subpixel-antialiased font-sans font-semibold ">Profile</h1>
