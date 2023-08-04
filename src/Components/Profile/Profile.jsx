@@ -1,47 +1,59 @@
-
 import React from 'react';
-import Navbar from '../Navbar/Navbar';
-
-
+import Navbar from '../Navbar/Navbar'; 
+import { Link } from 'react-router-dom';
+import SampleUser from '../../assets/sampleuser.png'
 const Profile = () => {
   return (
     <>
-      <Navbar />
-      <div className="Profile flex">
-        
-        
-        <div className="LeftProfile mt-24 ml-24">
-          <img
-            src="https://mdbcdn.b-cdn.net/img/new/avatars/1.webp"
-            className="w-72 mx-16 mt-16 rounded-full shadow-lg"
-            alt="Avatar"
+    <Navbar/>
+    <div className='UserProfile flex'>
+    <div className="userprofileLeft">
+    <div className="mt-20 ml-40 mb-5 ">
+    <img className="w-72  shadow-lg rounded-full cursor-pointer" src={SampleUser} alt=""/>
 
-          />
-          <button className="editbtn mx-14 mt-10 rounded-full rounded-2xl bg-sky-500 shadow-2xl bg-cover w-80 h-16 shadow-gray-400 hover:bg-sky-400 font-sans font-semibold text-white text-xl">Edit Profile</button>
-        </div>
-        <div className="RightProfile m-auto mr-[10rem]">
-        <h1 className="text-3xl mt-4 ml-8 hover:subpixel-antialiased font-sans font-semibold ">Profile</h1>
-          <div className="PersonalProfile shadow-md w-[45rem] mt-4 h-[39rem] rounded-lg grid gap-6 mb-6 md:grid-cols-2 bg-grey-200 ">
-            <div className="mb-8 ml-12 mt-12">
-            <h1 className="font-sans font-semibold text-xl">Name</h1>
-            <h1 className="bg-white w-[39rem] mt-2 rounded-md pl-2 text-lg p-1.5 text-gray-400">John</h1>
-            </div>
-            <div className="mb-8 ml-12">
-            <h1 className="font-sans font-semibold text-xl ">Email</h1>
-            <h1 className="bg-white w-[39rem] mt-2 rounded-md pl-2 text-lg p-1.5 text-gray-400">abc@gmail.com</h1>
-            </div>
-            <div className="mb-8 ml-12">
-            <h3 className="font-sans font-semibold text-xl">Phone Number</h3>
-            <h1 className="bg-white w-[39rem] mt-2 rounded-md pl-2 text-lg p-1.5 text-gray-400">+91 1234567890</h1>
-            </div>
-            <div className="mb-8 ml-12">
-            <h3 className="font-sans font-semibold text-xl">Password</h3>
-            <h1 className="bg-white w-[39rem] mt-2 rounded-md pl-2 text-lg p-1.5 text-gray-400">abc@123*</h1>
-            </div>
-            </div>
-            
-        </div>
-      </div>
+    <div className="font-medium dark:text-white text-3xl mt-12 text-center">
+        <div>Jese Leos</div>
+        <div className="text-sm text-gray-500 dark:text-gray-400">Joined in August 2014</div>
+    </div>
+</div>
+    </div>
+    <div className="profile_body  mb-10px px-10 py-2 border-2 rounded-md shadow-md m-auto mr-[10rem] mt-8 w-[45rem]">
+    <div className="profile_header">
+    <h1 className='text-3xl'>Profile Settings</h1>
+    </div>
+    <div className='mb-5'>
+<form className='mt-8'>
+
+
+
+<div className="grid gap-6 mb-6 md:grid-cols-2">
+    <div>
+        <label for="name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
+        <input type="text" id="name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="John" disabled/>
+    </div>
+    <div >
+    <label for="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email address</label>
+    <input type="email" id="email" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="john.doe@company.com" disabled/>
+</div> 
+
+    <div>
+        <label for="phone" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Phone number</label>
+        <input type="tel" id="phone" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="123-45-678" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" disabled/>
+    </div>
+  
+
+</div>
+
+<div className="mb-6">
+    <label for="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
+    <input type="password" id="password" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="•••••••••" disabled/>
+</div> 
+<Link to='/profile/edit'><button type="submit" className="text-white bg-sky-800 hover:bg-sky-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-fit-content sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-sky-800 dark:focus:ring-blue-800">Edit Profile</button></Link>
+
+</form>
+</div> 
+    </div>
+    </div>
     </>
   );
 };
