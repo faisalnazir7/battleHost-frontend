@@ -26,9 +26,14 @@ export default function Navbar() {
   <Link to='/signup'><button>Register</button></Link>
 </div>
 )}
-        <Link to='/signin' className='ml-auto '><button className='LogInbtn rounded-2xl border border-slate-300 hover:border-slate-400 h-12 w-20 bg-white ml-auto mr-6 mt-3.5'>Log In</button></Link>
+
+        {!JSON.parse(localStorage.getItem('web_token'))?
+        <>
+          <Link to='/signin' className='ml-auto '><button className='LogInbtn rounded-2xl border border-slate-300 hover:border-slate-400 h-12 w-20 bg-white ml-auto mr-6 mt-3.5'>Log In</button></Link>
         <Link to='/signup' className='mr-8'><button className='RegisterBtn rounded-2xl border border-slate-300 hover:border-slate-400 h-12 w-20 bg-white items-end mr-8 mt-3.5'>Register</button></Link>
-      <Dropdown/>
+        </>
+        :
+        <Dropdown/>}
         </div>
   )
 }
