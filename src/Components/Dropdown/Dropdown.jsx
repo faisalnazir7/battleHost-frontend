@@ -1,14 +1,19 @@
 import { Fragment } from 'react'
 import { Menu, Transition } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
 export default function Dropdown() {
+  const navigator=useNavigate();
+  const Logout=async()=>{
+   localStorage.clear()
+   navigator('/signin')
+  }
   return (
-    <Menu as="div" className="relative inline-block text-left">
+    <Menu as="div" className="relative inline-block text-left ml-auto">
       <div>
         <Menu.Button className="inline-flex w-full justify-center gap-x-1.5 rounded-md  px-3 py-2 text-sm font-semibold mt-4">
           {/* Options */}
@@ -69,7 +74,12 @@ export default function Dropdown() {
                 </a>
               )}
             </Menu.Item>
-            <form method="POST" action="#">
+            <form onSubmit={(e)=>{
+              e.preventDefault();
+              if(window.confirm('Do you wish to logout?')){
+                Logout();
+              }
+             }}>
               <Menu.Item>
                 {({ active }) => (
                   <button
@@ -78,7 +88,7 @@ export default function Dropdown() {
                       active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                       'block w-full px-4 py-2 text-left text-sm'
                     )}
-                  >
+                    >
                     Sign out
                   </button>
                 )}
