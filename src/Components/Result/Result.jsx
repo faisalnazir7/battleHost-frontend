@@ -13,6 +13,8 @@ export default function Result() {
     <Confetti
       width={width}
       height={height}
+      recycle={false}
+      numberOfPieces={500}
     />
     <div className='Result flex m-auto w-1/2'>
     <div className="second mt-44">
