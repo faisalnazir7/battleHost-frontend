@@ -7,6 +7,7 @@ import Dasboard from './Components/Dasboard/Dasboard';
 import Profile from './Components/Profile/Profile';
 import UserProfile from './Components/UserProfile/UserProfile';
 import TournamentDescription from './Components/TournamentDescription/TournamentDescription';
+import Result from './Components/Result/Result';
 function App() {
 
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route exact path="/profile" element={<Profile/>}></Route>
         <Route exact path="/profile/edit" element={<UserProfile/>}></Route>   
         <Route exact path="/tournaments/details" element={<TournamentDescription/>}></Route>   
+        <Route exact path="/result" element={<Result/>}></Route>   
      </Routes>
       
       {/* </Flowbite> */}
