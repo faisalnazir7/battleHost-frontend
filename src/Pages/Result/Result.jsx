@@ -1,5 +1,5 @@
 import React from 'react'
-import Navbar from '../Navbar/Navbar'
+import Navbar from '../../Components/Navbar/Navbar'
 import gold from '../../assets/gold trophy.png'
 import silver from '../../assets/silver trophy.png'
 import bronze from '../../assets/bronze trophy.png'

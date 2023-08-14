@@ -1,5 +1,5 @@
 import React from 'react';
-import Navbar from '../Navbar/Navbar'; 
+import Navbar from '../../Components/Navbar/Navbar'; 
 import { Link } from 'react-router-dom';
 import SampleUser from '../../assets/sampleuser.png'
 const Profile = () => {
