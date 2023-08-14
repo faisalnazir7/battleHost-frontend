@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import Navbar from '../Navbar/Navbar'
+import Navbar from '../../Components/Navbar/Navbar'
 import SampleUser from '../../assets/sampleuser.png'
 function UserProfile() {
     const image=useRef();

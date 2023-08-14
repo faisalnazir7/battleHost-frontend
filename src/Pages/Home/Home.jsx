@@ -1,6 +1,6 @@
 import React from 'react';
-import Navbar from '../Navbar/Navbar';
-import Carousel from '../Carousel/Carousel';
+import Navbar from '../../Components/Navbar/Navbar';
+import Carousel from '../../Components/Carousel/Carousel';
 import img from '../../assets/registeration.png'
 
 
