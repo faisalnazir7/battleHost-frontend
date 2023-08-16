@@ -8,7 +8,7 @@ export default function Dasboard() {
     <div className='Dasboard'>
     <div className="max-w-sm rounded-2xl overflow-hidden shadow-lg ml-12 mt-12">
   <img className="w-full" src="https://secure-content.meetupstatic.com/images/classic-events/514351843/676x380.jpg" />
-  <div className="px-6 py-4">
+  <div className="px-6 py-4 bg-white">
     <h2 className="font-bold text-2xl  text-center mb-4">HackRx 4.0</h2>
     <span className='flex mb-2'>
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
