@@ -1,14 +1,17 @@
 import React from 'react';
 import Navbar from '../../Components/Navbar/Navbar';
 import Carousel from '../../Components/Carousel/Carousel';
+
 import img from '../../assets/registeration.png'
+import Footer from '../../Components/Footer/Footer';
 
 
 export default function Home() {
   return (
-    <>                                          
+    <>   
+                                        
     <Navbar/>
-    <div className="flex bg-black mb-40">
+    <div className="flex mb-24 bg-sky-950">
     <div className="mt-28 ml-20">
     <div className='text-6xl  antialiased font-semibold text-left ml-10 text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-500 mt-8'><span className='text-transparent text-8xl bg-clip-text bg-gradient-to-r from-red-500 to-orange-500 ml-6 mb-8'>Flaunt </span><br></br>Your Talent!</div>
     <div className='text-3xl text-white antialiased font-semibold text-left leading-normal ml-10 mt-8'>Join Competition,Tournaments <br></br>and many more Contests!</div>
@@ -23,8 +26,11 @@ export default function Home() {
   
    </div>
    </div>
+      
    
    <Carousel/>
+  
+   
     </>
   )
 }
