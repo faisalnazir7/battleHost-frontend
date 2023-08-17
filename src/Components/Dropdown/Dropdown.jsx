@@ -48,6 +48,20 @@ export default function Dropdown() {
                 </Link>
               )}
             </Menu.Item>
+            {JSON.parse(localStorage.getItem('user_data')).role==="Host" &&
+              <Menu.Item>
+            {({ active }) => (
+              <Link
+                to='/tournaments/create'
+                className={classNames(
+                  active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                  'block px-4 py-2 text-sm'
+                )}
+              >
+                Create Tournament
+              </Link>
+            )}
+          </Menu.Item>}
             <Menu.Item>
               {({ active }) => (
                 <Link
