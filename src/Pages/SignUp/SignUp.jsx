@@ -23,7 +23,6 @@ export default function SignUp() {
     })
     const data=await response.json();
     if(!data.message){
-      console.log(data)
       localStorage.setItem('user_data',JSON.stringify(data))
       localStorage.setItem('web_token',JSON.stringify(data.token))
       navigator('/')
