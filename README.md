@@ -7,6 +7,8 @@
 <!-- markdownlint-restore -->
 <!-- prettier-ignore-end -->
 
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
 
 # Key Pages and features:
 
