@@ -4,31 +4,9 @@
   ],
   "imageSize": 100,
   "commit": false,
-  "contributors": [
-    {
-      "login": "faisalnazir7",
-      "name": "Faisal Nazir",
-      "avatar_url": "https://avatars.githubusercontent.com/u/76447944?v=4",
-      "profile": "https://github.com/faisalnazir7",
-      "contributions": [
-        "design",
-        "maintenance",
-        "projectManagement",
-        "code"
-      ]
-    },
-    {"login": "Swarga-codes",
-      "name": "SwargaRajDutta",
-      "avatar_url": "https://avatars.githubusercontent.com/u/72154312?v=4",
-      "profile": "https://github.com/Swarga-codes",
-      "contributions": [
-        "design",
-        "maintenance",
-        "projectManagement",
-        "code"
-      ]
-    },
-  ],
+  "linkToUsage": true,
+  "skipCi": true,
+  "contributors": [],
   "commitType": "docs",
   "commitConvention": "angular",
   "contributorsPerLine": 7,
