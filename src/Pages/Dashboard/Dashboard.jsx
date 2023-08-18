@@ -1,11 +1,13 @@
 import React from 'react'
 import Navbar from '../../Components/Navbar/Navbar'
+import CardWithDecorativeImage from '../../Components/Card/Card'
 
 export default function Dasboard() {
   return (
     <>
     <Navbar/>
     <div className='Dasboard'>
+
     <div className="max-w-sm rounded-2xl overflow-hidden shadow-lg ml-12 mt-12">
   <img className="w-full" src="https://secure-content.meetupstatic.com/images/classic-events/514351843/676x380.jpg" />
   <div className="px-6 py-4 bg-white">
@@ -47,6 +49,11 @@ export default function Dasboard() {
     </p>
   </div>
 </div>
+
+<div>
+  <CardWithDecorativeImage/>
+</div>
+
     </div>
     </>
   )
