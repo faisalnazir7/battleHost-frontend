@@ -6,6 +6,8 @@ export default {
     // Or if using src directory: 
     "./src/**/*.{js,ts,jsx,tsx,mdx}", 
     "./node_modules/tw-elements/dist/js/**/*.js", 
+    'node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}',
+    './node_modules/flowbite-react/**/*.js', './Pages/**/*.{ts,tsx}','./Components/**/*.{ts,tsx}', './public/**/*.html',
   ], 
   darkMode: 'class', 
   theme: { 
@@ -40,5 +42,5 @@ export default {
       // => @media (max-width: 479px) { ... } 
   }, 
   }, 
-  plugins: [], 
+  plugins: [require('flowbite/plugin')], 
 }
