@@ -6,7 +6,18 @@
   "commit": false,
   "contributors": [
     {
-      "login": "Swarga-codes",
+      "login": "faisalnazir7",
+      "name": "Faisal Nazir",
+      "avatar_url": "https://avatars.githubusercontent.com/u/76447944?v=4",
+      "profile": "https://github.com/faisalnazir7",
+      "contributions": [
+        "design",
+        "maintenance",
+        "projectManagement",
+        "code"
+      ]
+    },
+    {"login": "Swarga-codes",
       "name": "SwargaRajDutta",
       "avatar_url": "https://avatars.githubusercontent.com/u/72154312?v=4",
       "profile": "https://github.com/Swarga-codes",
@@ -16,7 +27,7 @@
         "projectManagement",
         "code"
       ]
-    }
+    },
   ],
   "commitType": "docs",
   "commitConvention": "angular",
