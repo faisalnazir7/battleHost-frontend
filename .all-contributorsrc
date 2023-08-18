@@ -16,7 +16,18 @@
         "projectManagement",
         "code"
       ]
-    }
+    },
+    {"login": "Swarga-codes",
+      "name": "SwargaRajDutta",
+      "avatar_url": "https://avatars.githubusercontent.com/u/72154312?v=4",
+      "profile": "https://github.com/Swarga-codes",
+      "contributions": [
+        "design",
+        "maintenance",
+        "projectManagement",
+        "code"
+      ]
+    },
   ],
   "commitType": "docs",
   "commitConvention": "angular",
