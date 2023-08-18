@@ -9,6 +9,7 @@ import UserProfile from './Pages/UserProfile/UserProfile';
 import TournamentDescription from './Pages/TournamentDescription/TournamentDescription';
 import Result from './Pages/Result/Result';
 import OrganiserTournamentForm from './Pages/OrganiserTournamentForm/OrganiserTournamentForm';
+import LiveTournaments from './Pages/LiveTournaments/LiveTournaments';
 function App() {
 
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route exact path="/tournaments/details" element={<TournamentDescription/>}></Route>   
         <Route exact path="/result" element={<Result/>}></Route>   
         <Route exact path="/tournaments/create" element={<OrganiserTournamentForm/>}></Route>   
+        <Route exact path="/tournaments/live" element={<LiveTournaments/>}></Route>   
      </Routes>
       
       {/* </Flowbite> */}
