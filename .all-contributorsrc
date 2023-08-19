@@ -1,15 +1,6 @@
 {
-  "files": [
-    "README.md"
-  ],
+  "files": ["README.md"],
   "imageSize": 100,
   "commit": false,
-  "linkToUsage": true,
-  "skipCi": true,
-  "contributors": [],
-  "commitType": "docs",
-  "commitConvention": "angular",
-  "contributorsPerLine": 7,
-  "projectName": "battleHost-frontend",
-  "projectOwner": "faisalnazir7"
+  "contributors": []
 }
