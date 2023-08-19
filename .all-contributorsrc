@@ -1,6 +1,27 @@
 {
-  "files": ["README.md"],
+  "projectName": "battleHost-frontend",
+  "projectOwner": "faisalnazir7",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
   "imageSize": 100,
-  "commit": false,
-  "contributors": []
+  "commit": true,
+  "commitConvention": "angular",
+  "contributors": [
+    {
+      "login": "faisalnazir7",
+      "name": "Faisal Nazir",
+      "avatar_url": "https://avatars.githubusercontent.com/u/76447944?v=4",
+      "profile": "https://github.com/faisalnazir7",
+      "contributions": [
+        "code",
+        "doc",
+        "maintenance"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "linkToUsage": false
 }
