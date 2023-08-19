@@ -1,6 +1,6 @@
 ## Contributors
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
@@ -10,6 +10,7 @@
   <tbody>
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/faisalnazir7"><img src="https://avatars.githubusercontent.com/u/76447944?v=4?s=100" width="100px;" alt="Faisal Nazir"/><br /><sub><b>Faisal Nazir</b></sub></a><br /><a href="https://github.com/faisalnazir7/battleHost-frontend/commits?author=faisalnazir7" title="Code">💻</a> <a href="https://github.com/faisalnazir7/battleHost-frontend/commits?author=faisalnazir7" title="Documentation">📖</a> <a href="#maintenance-faisalnazir7" title="Maintenance">🚧</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/Swarga-codes"><img src="https://avatars.githubusercontent.com/u/72154312?v=4?s=100" width="100px;" alt="SwargaRajDutta"/><br /><sub><b>SwargaRajDutta</b></sub></a><br /><a href="https://github.com/faisalnazir7/battleHost-frontend/commits?author=Swarga-codes" title="Code">💻</a> <a href="https://github.com/faisalnazir7/battleHost-frontend/commits?author=Swarga-codes" title="Documentation">📖</a> <a href="#maintenance-Swarga-codes" title="Maintenance">🚧</a></td>
     </tr>
   </tbody>
 </table>
