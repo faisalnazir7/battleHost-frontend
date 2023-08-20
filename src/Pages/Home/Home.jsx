@@ -40,8 +40,6 @@ export default function Home() {
     </div>
    <div className="image">
    <img src={img} className='h-auto w-[50rem] mt-16 ml-36'></img>
-   
-  
    </div>
    </div>
       

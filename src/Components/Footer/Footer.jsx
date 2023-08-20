@@ -4,10 +4,8 @@ import img from '../../../public/logo.png'
 export default function Footer() {
   return (
     <div>
-        
-<div class="flex items-end w-full min-h-screen bg-sky-950 -mt-[27rem]">
-
-    <footer class="w-full text-gray-700 bg-sky-950 body-font">
+{/* <div class="flex items-end w-full min-h-screen bg-sky-950 -mt-[27rem]"> */}
+    <footer className="w-full text-gray-700 bg-sky-950 body-font mt-32">
         <div
             class="container flex pt-8 pb-12 mx-auto md:items-center lg:items-start md:flex-row md:flex-no-wrap">
             <div class="flex-shrink-0 w-64 mx-auto text-center mt-10 md:mx-0 md:text-left">
@@ -102,12 +100,12 @@ export default function Footer() {
         </div>
         <div class="bg-sky-500">
             <div class="container px-5 py-4 mx-auto">
-                <p class="text-lg text-black text-center xl:text-center">battleHost © 2023 All Rights Reserved </p>
+                <p class="text-base text-black text-center xl:text-center">battleHost © {new Date().getFullYear()} All Rights Reserved </p>
             </div>
         </div>
     </footer>
 
-</div>
-    </div>
+{/* </div> */}
+     </div>
   )
 }
