@@ -1,13 +1,64 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Navbar from '../../Components/Navbar/Navbar'
 import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
+import { useNavigate } from "react-router-dom";
 
 export default function OrganiserTournamentForm() {
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [startDateTime, setStartDateTime] = useState(new Date());
+  const [endDateTime, setEndDateTime] = useState(new Date());
+  const[rules,setRules]=useState("");
+  const[prize1,setPrize1]=useState("");
+  const[prize2,setPrize2]=useState("");
+  const[prize3,setPrize3]=useState("");
+  const[bannerImg,setBannerImg]=useState("");
+  const[teamSize,setTeamSize]=useState("");
+  const[location,setLocation]=useState("");
+  const navigator=useNavigate();
+  const createTournament=()=>{
+    fetch('http://localhost:5000/api/tournament/createtournament',{
+      method:'POST',
+      headers:{
+        'Content-Type':'application/json',
+        "Authorization":"Bearer "+ localStorage.getItem("web_token")
+      },
+      body:JSON.stringify({
+        name:title,
+        description:description,
+        startDateTime:startDateTime,
+        endDateTime: endDateTime,
+        rules:rules,
+        prize:[{
+          name:'winner',
+          description:prize1
+        },
+      {
+        name:'1st RunnerUp',
+        description:prize2
+      },
+      {
+      name:'2nd RunnerUp',
+      description:prize3
+      }
+    ],
+        bannerImg:bannerImg,
+        teamSize:teamSize,
+        location: location
+      })
+    })
+    .then(res=>res.json())
+    .then(data=>{
+        console.log(data);
+    })
+    .catch(err=>console.log(err))
+  }
+    
   return (
     <>
     <Navbar/>
     <div className='OrganiserTournamentForm bg-white m-auto w-1/2 mt-8'>
-    <form>
+    <form onSubmit={(e)=>{e.preventDefault(); createTournament()}}>
       <div className="space-y-12">
         <div >
           <h2 className="text-3xl font-semibold leading-7 text-gray-900">Create your own Tournamnet</h2>
@@ -26,6 +77,8 @@ export default function OrganiserTournamentForm() {
                     type="text"
                     name="title"
                     id="title"
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)}
                     className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                   />
                 </div>
@@ -41,6 +94,8 @@ export default function OrganiserTournamentForm() {
                   id="about"
                   name="about"
                   rows={3}
+                  value={description}
+                  onChange={(e) => setDescription(e.target.value)}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   defaultValue={''}
                 />
@@ -78,6 +133,8 @@ export default function OrganiserTournamentForm() {
                   type="text"
                   name="location"
                   id="location"
+                  value={location}
+                  onChange={(e) => setLocation(e.target.value)}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
@@ -96,6 +153,8 @@ export default function OrganiserTournamentForm() {
                   type="date"
                   name="startDate"
                   id="startDate"
+                  value={startDateTime} 
+                  onChange={(e) => setStartDateTime(e.target.value)}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
@@ -110,6 +169,8 @@ export default function OrganiserTournamentForm() {
                   id="endDate"
                   name="endDate"
                   type="date"
+                  value={endDateTime} 
+                  onChange={(e) => setEndDateTime(e.target.value)}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
@@ -125,6 +186,8 @@ export default function OrganiserTournamentForm() {
                   name="teamSize"
                   id="teamSize"
                   autoComplete="teamSize"
+                  value={teamSize}
+                  onChange={(e) => setTeamSize(e.target.value)}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
@@ -139,6 +202,8 @@ export default function OrganiserTournamentForm() {
                   name="rules"
                   id="rules"
                   rows={3}
+                  value={rules}
+                  onChange={(e) => setRules(e.target.value)}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   defaultValue={''}
                 />
@@ -158,6 +223,8 @@ export default function OrganiserTournamentForm() {
                   name="prize1"
                   id="prize1"
                   autoComplete="prize1"
+                  value={prize1}
+                  onChange={(e) => setPrize1(e.target.value)}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
@@ -173,6 +240,8 @@ export default function OrganiserTournamentForm() {
                   name="prize2"
                   id="prize2"
                   autoComplete="prize2"
+                  value={prize2}
+                  onChange={(e) => setPrize2(e.target.value)}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
@@ -187,6 +256,8 @@ export default function OrganiserTournamentForm() {
                   type="text"
                   name="prize3"
                   id="prize3"
+                  value={prize3}
+                  onChange={(e) => setPrize3(e.target.value)}
                   autoComplete="prize3"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
@@ -206,7 +277,7 @@ export default function OrganiserTournamentForm() {
         <button
           type="submit"
           className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-        >
+          >
           Save
         </button>
       </div>
