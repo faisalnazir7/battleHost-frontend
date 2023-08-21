@@ -6,26 +6,40 @@ export default function SignIn() {
   const[password,setPassword]=useState('');
   const[error,setError]=useState('');
   const navigator=useNavigate()
-  const SignIn=async()=>{
-    const response=await fetch('http://localhost:5000/api/users/login',{
-      method:'POST',
-      headers:{
-        'Content-Type':'application/json'
-      },
-      body:JSON.stringify({
-        email:email,
-        password:password,
-      })
-    })
-    const data=await response.json();
-    if(!data.message){
-      localStorage.setItem('user_data',JSON.stringify(data))
-      localStorage.setItem('web_token',JSON.stringify(data.token))
-      navigator('/')
-    }else{
-      setError(data.message)
+  const SignIn = async () => {
+    try {
+        const response = await fetch('http://localhost:5000/api/users/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                email: email,
+                password: password,
+            }),
+            credentials: 'include', // Send cookies with the request
+        });
+
+        const data = await response.json();
+
+        if (!data.message) {
+            localStorage.setItem('user_data', JSON.stringify(data));
+            localStorage.setItem('web_token', JSON.stringify(data.token));
+            navigator("/");
+
+            // Set cookie manually using document.cookie
+            document.cookie = `token=${data.token}; path=/;`;
+            
+            // Replace this with your navigation logic
+            // For example: window.location.href = '/';
+        } else {
+            setError(data.message);
+        }
+    } catch (error) {
+        setError(error.message || 'An error occurred');
     }
-  }
+};
+
   return (
     <div className='SignIn w-96 h-[26rem] bg-slate-200 m-auto mt-20 md:w-[19rem] '>
         <h1 className='text-center text-2xl pt-4'>Sign in</h1>
