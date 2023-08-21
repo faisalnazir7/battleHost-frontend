@@ -16,43 +16,48 @@ export default function OrganiserTournamentForm() {
   const[teamSize,setTeamSize]=useState("");
   const[location,setLocation]=useState("");
   const navigator=useNavigate();
-  const createTournament=()=>{
-    fetch('http://localhost:5000/api/tournament/createtournament',{
-      method:'POST',
-      headers:{
-        'Content-Type':'application/json',
-        "Authorization":"Bearer "+ localStorage.getItem("web_token")
-      },
-      body:JSON.stringify({
-        name:title,
-        description:description,
-        startDateTime:startDateTime,
-        endDateTime: endDateTime,
-        rules:rules,
-        prize:[{
-          name:'winner',
-          description:prize1
-        },
-      {
-        name:'1st RunnerUp',
-        description:prize2
-      },
-      {
-      name:'2nd RunnerUp',
-      description:prize3
-      }
-    ],
-        bannerImg:bannerImg,
-        teamSize:teamSize,
-        location: location
-      })
-    })
-    .then(res=>res.json())
-    .then(data=>{
+  const createTournament = async () => {
+    try {
+        const response = await fetch('http://localhost:5000/api/tournament/createtournament', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                name: title,
+                description: description,
+                startDateTime: startDateTime,
+                endDateTime: endDateTime,
+                rules: rules,
+                prize: [
+                    {
+                        name: 'winner',
+                        description: prize1
+                    },
+                    {
+                        name: '1st RunnerUp',
+                        description: prize2
+                    },
+                    {
+                        name: '2nd RunnerUp',
+                        description: prize3
+                    }
+                ],
+                bannerImg: bannerImg,
+                teamSize: teamSize,
+                location: location
+            }),
+            credentials: 'include', // Send cookies with the request
+        });
+
+        const data = await response.json();
+        navigator("/")
         console.log(data);
-    })
-    .catch(err=>console.log(err))
-  }
+    } catch (error) {
+        console.error(error);
+    }
+};
+
     
   return (
     <>
