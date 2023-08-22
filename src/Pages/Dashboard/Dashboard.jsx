@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Navbar from '../../Components/Navbar/Navbar'
 import CardWithDecorativeImage from '../../Components/Card/Card'
 import TournamentsCard from '../../Components/TournamentsCard/TournamentsCard'
+import { Link } from 'react-router-dom'
 
 export default function Dasboard() {
   const [tournaments,setTournaments]=useState([])
@@ -19,7 +20,9 @@ export default function Dasboard() {
     <Navbar/>
     <div className='Dasboard flex flex-wrap'>
 {tournaments.map(tournament=>(
+  <Link to={`/tournaments/details/${tournament._id}`}>
    <TournamentsCard key={tournament._id} tournament={tournament}/>
+   </Link>
 )
 )
 }

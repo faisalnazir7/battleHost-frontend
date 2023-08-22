@@ -23,7 +23,7 @@ function App() {
         <Route exact path="/dashboard" element={<Dashboard/>}></Route>
         <Route exact path="/profile" element={<Profile/>}></Route>
         <Route exact path="/profile/edit" element={<UserProfile/>}></Route>   
-        <Route exact path="/tournaments/details" element={<TournamentDescription/>}></Route>   
+        <Route exact path="/tournaments/details/:tournamentId" element={<TournamentDescription/>}></Route>   
         <Route exact path="/result" element={<Result/>}></Route>   
         <Route exact path="/tournaments/create" element={<OrganiserTournamentForm/>}></Route>   
         <Route exact path="/tournaments/live" element={<LiveTournaments/>}></Route>   

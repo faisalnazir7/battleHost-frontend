@@ -1,6 +1,6 @@
-export default function dateFormatter(inputDate) {
+export default function dateFormatter(inputDate,subtractDay) {
     const date = new Date(inputDate);
-    date.setDate(date.getDate() - 1); // Subtract one day
+    date.setDate(date.getDate() - subtractDay); // Subtract one day
     const day = String(date.getDate()).padStart(2, '0');
     const month = date.toLocaleString('default', { month: 'short' });
     const year = String(date.getFullYear()).slice(-2);

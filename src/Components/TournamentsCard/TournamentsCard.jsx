@@ -36,11 +36,11 @@ function TournamentsCard({tournament}) {
     Registration till
     </p>
     <p className="text-gray-700 text-base ml-12">
-    {dateFormatter(tournament.startDateTime).split(",")[0]+", "}
+    {dateFormatter(tournament.startDateTime,1).split(",")[0]+", "}
     </p>
     </span>
     <p className="text-gray-700 text-base mr-16 text-end">
-    {dateFormatter(tournament.startDateTime).split(",")[1]}
+    {dateFormatter(tournament.startDateTime,1).split(",")[1]}
     </p>
   </div>
 </div>
