@@ -8,10 +8,29 @@ function classNames(...classes) {
 
 export default function Dropdown() {
   const navigator=useNavigate();
-  const Logout=async()=>{
-   localStorage.clear()
-   navigator('/signin')
-  }
+  async function logout() {
+    try {
+        const response = await fetch('http://localhost:5000/api/users/logout', {
+            method: 'POST', // Or the appropriate HTTP method
+            credentials: 'same-origin', // This sends cookies along with the request
+        });
+        const data=await response.json()
+        if (response.ok) {
+            // Logout was successful, handle UI changes or redirects here
+            // console.log('Logged out successfully');
+            console.log(data.message)
+            // Clear the cookies on the client side
+            document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+            localStorage.clear()
+            navigator('/signin')
+        } else {
+            // Handle error response
+            console.error('Logout failed');
+        }
+    } catch (error) {
+        console.error('Error during logout:', error);
+    }
+}
   return (
     <Menu as="div" className="relative inline-block text-left ml-auto">
       <div>
@@ -48,7 +67,7 @@ export default function Dropdown() {
                 </Link>
               )}
             </Menu.Item>
-            {JSON.parse(localStorage.getItem('user_data')).role==="Host"?
+            {JSON.parse(localStorage.getItem('user_data'))?.role==="Host"?
               <Menu.Item>
             {({ active }) => (
               <Link
@@ -93,7 +112,7 @@ export default function Dropdown() {
             <form onSubmit={(e)=>{
               e.preventDefault();
               if(window.confirm('Do you wish to logout?')){
-                Logout();
+                logout();
               }
              }}>
               <Menu.Item>
