@@ -24,7 +24,6 @@ export default function SignIn() {
 
         if (!data.message) {
             localStorage.setItem('user_data', JSON.stringify(data));
-            localStorage.setItem('web_token', JSON.stringify(data.token));
             navigator("/");
 
             // Set cookie manually using document.cookie

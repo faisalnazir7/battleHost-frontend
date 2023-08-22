@@ -51,7 +51,7 @@ export default function Dasboard() {
 </div>
 
 <div>
-  <CardWithDecorativeImage/>
+  {/*<CardWithDecorativeImage/>*/}
 </div>
 
     </div>
