@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Navbar from '../../Components/Navbar/Navbar'
 import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
 import { useNavigate } from "react-router-dom";
-
+import UploadIcon from "../../assets/uploadicon.jpg"
 export default function OrganiserTournamentForm() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -15,7 +15,31 @@ export default function OrganiserTournamentForm() {
   const[bannerImg,setBannerImg]=useState("");
   const[teamSize,setTeamSize]=useState("");
   const[location,setLocation]=useState("");
+  const[image,setImage]=useState("");
   const navigator=useNavigate();
+  const loadFile = (e) => {
+    let output = document.getElementById("output");
+    output.src = URL.createObjectURL(e.target.files[0]);
+    output.onload = () => {
+      URL.revokeObjectURL(output.src);
+    };
+  };
+  const sendImageToCloudinary = () => {
+    const data = new FormData();
+    data.append("file", image);
+    data.append("upload_preset", "battlehost_assets");
+    data.append("cloud_name", "markus0509");
+    fetch("https://api.cloudinary.com/v1_1/markus0509/image/upload", {
+      method: "POST",
+      body: data,
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        // setUrl(data.url);
+        console.log(data.url);
+      })
+      .catch((err) => console.log(err));
+  };
   const createTournament = async () => {
     try {
         const response = await fetch('http://localhost:5000/api/tournament/createtournament', {
@@ -113,18 +137,26 @@ export default function OrganiserTournamentForm() {
               </label>
               <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
                 <div className="text-center">
-                  <PhotoIcon className="mx-auto h-12 w-12 text-gray-300" aria-hidden="true" />
+        {/*<PhotoIcon className="mx-auto h-12 w-12 text-gray-300" aria-hidden="true" id='output'/>*/}
+                  <img src={UploadIcon} alt="no preview" id='output' height={100} width={100} className='m-auto'/>
                   <div className="mt-4 flex text-sm leading-6 text-gray-600">
                     <label
                       htmlFor="file-upload"
                       className="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
                     >
                       <span>Upload a file</span>
-                      <input id="file-upload" name="file-upload" type="file" className="sr-only" />
+                      <input id="file-upload" name="file-upload" type="file" className="sr-only" accept='image/*' 
+                      onChange={(e)=>{
+                        loadFile(e)
+                        setImage(e.target.files[0])
+                        // console.log(e.target.files[0])
+                      }}
+                      />
                     </label>
                     <p className="pl-1">or drag and drop</p>
                   </div>
                   <p className="text-xs leading-5 text-gray-600">PNG, JPG, GIF up to 10MB</p>
+                  <button type='button' onClick={()=>sendImageToCloudinary()}>Send</button>
                 </div>
               </div>
             </div>
