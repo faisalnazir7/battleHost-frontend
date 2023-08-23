@@ -1,11 +1,36 @@
-import { Fragment, useRef, useState } from 'react'
+import { Fragment, useEffect, useRef, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
 import { Button, Checkbox, Label, TextInput } from 'flowbite-react';
+import { useParams } from 'react-router-dom';
 export default function Popup({open,setOpen}) {
+  const {tournamentId}=useParams()
 const [Individual,setIndividual]=useState(true);
   const cancelButtonRef = useRef(null)
-
+  const [individualEmail,setIndividualEmail]=useState("");
+  const [typeReg,setTypeReg]=useState("individual");
+  const registerTournamentIndividual=async()=>{
+    try{
+    const response=await fetch('http://localhost:5000/api/tournament/registerfortournament',{
+      method:'POST',
+      headers:{
+        'Content-Type':'application/json',
+      },
+      body:JSON.stringify({
+        user:JSON.parse(localStorage.getItem("user_data"))._id,
+        tournament:tournamentId,
+        registrationType:typeReg
+      }),
+      credentials:'include'
+    })
+    const data=await response.json()
+    
+    console.log(data)
+  }
+  catch(err){
+    console.log(err)
+  }
+  }
   return (
     <Transition.Root show={open} as={Fragment}>
       <Dialog as="div" className="relative z-10" initialFocus={cancelButtonRef} onClose={setOpen}>
@@ -51,7 +76,7 @@ const [Individual,setIndividual]=useState(true);
                {Individual?
                 
                 <div className='text-left font-semibold mt-5'>
-                <div className="mb-2 block">
+               {/* <div className="mb-2 block">
                   <Label
                     htmlFor="email1"
                     value="Your email"
@@ -63,7 +88,8 @@ const [Individual,setIndividual]=useState(true);
                   placeholder="name@flowbite.com"
                   required
                   type="email"
-                />
+                  onClick={(e)=>setIndividualEmail(e.target.value)}
+               />*/}
               </div>
             :
             <div className='text-left font-semibold mt-5 overflow-y-scroll max-h-60'>
@@ -158,7 +184,7 @@ const [Individual,setIndividual]=useState(true);
                   <button
                     type="button"
                     className="inline-flex w-full justify-center items-center rounded-md bg-teal-500 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-teal-600 sm:ml-3 sm:w-auto"
-                    onClick={() => setOpen(false)}
+                    onClick={() => registerTournamentIndividual()}
                   >
                     Register
                     <span className='ml-1'>
@@ -168,9 +194,13 @@ const [Individual,setIndividual]=useState(true);
 </span>
                   </button>
                   {Individual?
-                  <p className='text-center mt-8'>Participate as a Team? <span className='text-sky-400 cursor-pointer' onClick={()=>setIndividual(false)}>Register Here</span></p>
+                  <p className='text-center mt-8'>Participate as a Team? <span className='text-sky-400 cursor-pointer' onClick={()=>{setIndividual(false)
+                  setTypeReg('team')
+                  }}>Register Here</span></p>
                 :
-                <p className='text-center mt-8'>Participate solo? <span className='text-sky-400 cursor-pointer' onClick={()=>setIndividual(true)}>Register Here</span></p>
+                <p className='text-center mt-8'>Participate solo? <span className='text-sky-400 cursor-pointer' onClick={()=>{setIndividual(true)
+                setTypeReg('individual')
+                }}>Register Here</span></p>
 
                 }
                   </div>
