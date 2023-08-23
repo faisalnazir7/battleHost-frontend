@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Popup from "./Popup";
 import Navbar from "../../Components/Navbar/Navbar";
 import Prizes from "./Prizes";
@@ -8,6 +8,7 @@ import dateFormatter from "../../util/dateFormatter";
 function RegisterTournament({tournament}) {
   const [open, setOpen] = React.useState(false);
   const navigator=useNavigate()
+  
   return (
     <>
       <Navbar />
@@ -24,12 +25,22 @@ function RegisterTournament({tournament}) {
           />
           <div className="tournament_header flex mt-4">
             <h1 className="mt-10 font-bold text-4xl">{tournament?.name}</h1>
+            {JSON.parse(localStorage.getItem('user_data')).role==='participant'?
             <button
               className="rounded-md ml-auto p-5 bg-teal-400 text-white text-xl tracking-wide"
               onClick={() => setOpen(true)}
             >
               RegisterTournament
             </button>
+            :
+            <button
+            className="rounded-md ml-auto p-5 bg-teal-400 text-white text-xl tracking-wide"
+            // onClick={() => setOpen(true)}
+            disabled
+          >
+            RegisterTournament
+          </button>
+            }
           </div>
           <p className="font-bold flex mt-4 text-lg">
             <svg
