@@ -33,13 +33,7 @@ function RegisterTournament({tournament}) {
               RegisterTournament
             </button>
             :
-            <button
-            className="rounded-md ml-auto p-5 bg-teal-400 text-white text-xl tracking-wide"
-            // onClick={() => setOpen(true)}
-            disabled
-          >
-            RegisterTournament
-          </button>
+            <p></p>
             }
           </div>
           <p className="font-bold flex mt-4 text-lg">
