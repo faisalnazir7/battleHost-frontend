@@ -28,8 +28,8 @@ export default function OrganiserTournamentForm() {
     const data = new FormData();
     data.append("file", image);
     data.append("upload_preset", "battlehost_assets");
-    data.append("cloud_name", "markus0509");
-    fetch("https://api.cloudinary.com/v1_1/markus0509/image/upload", {
+    data.append("cloud_name", `${import.meta.env.VITE_CLOUD_KEY}`);
+    fetch(`${import.meta.env.VITE_CLOUD_URL}`, {
       method: "POST",
       body: data,
     })
@@ -42,7 +42,7 @@ export default function OrganiserTournamentForm() {
   };
   const createTournament = async () => {
     try {
-        const response = await fetch('http://localhost:5000/api/tournament/createtournament', {
+        const response = await fetch(`${import.meta.env.VITE_SERVER_URL}/api/tournament/createtournament`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

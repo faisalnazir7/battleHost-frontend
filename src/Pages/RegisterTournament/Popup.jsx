@@ -11,7 +11,7 @@ const [Individual,setIndividual]=useState(true);
   const [typeReg,setTypeReg]=useState("individual");
   const registerTournamentIndividual=async()=>{
     try{
-    const response=await fetch('http://localhost:5000/api/tournament/registerfortournament',{
+    const response=await fetch(`${process.env.SERVER_URL}/api/tournament/registerfortournament`,{
       method:'POST',
       headers:{
         'Content-Type':'application/json',
