@@ -7,11 +7,18 @@ export default function Popup({open,setOpen}) {
   const {tournamentId}=useParams()
 const [Individual,setIndividual]=useState(true);
   const cancelButtonRef = useRef(null)
-  const [individualEmail,setIndividualEmail]=useState("");
+  const [teamName,setTeamName]=useState("");
+  const [teamMember1Email,setTeamMember1Email]=useState("");
+  const [teamMember2Email,setTeamMember2Email]=useState("");
+  const [teamMember3Email,setTeamMember3Email]=useState("");
+  const [teamMember4Email,setTeamMember4Email]=useState("");
   const [typeReg,setTypeReg]=useState("individual");
-  const registerTournamentIndividual=async()=>{
+
+  const registerTournament=async()=>{
     try{
-    const response=await fetch(`${process.env.SERVER_URL}/api/tournament/registerfortournament`,{
+let teamMembers=[teamMember1Email,teamMember2Email,teamMember3Email,teamMember4Email]
+      let filterNullMembers=teamMembers.filter(team=>team!=="")    
+const response=await fetch(`${import.meta.env.VITE_SERVER_URL}/api/tournament/registerfortournament`,{
       method:'POST',
       headers:{
         'Content-Type':'application/json',
@@ -19,7 +26,9 @@ const [Individual,setIndividual]=useState(true);
       body:JSON.stringify({
         user:JSON.parse(localStorage.getItem("user_data"))._id,
         tournament:tournamentId,
-        registrationType:typeReg
+        registrationType:typeReg,
+        teamName,
+        teamMembers:filterNullMembers
       }),
       credentials:'include'
     })
@@ -71,6 +80,7 @@ const [Individual,setIndividual]=useState(true);
                 <p className='text-m italic my-4 w-96'>"Collaboration is like carbonation for fresh ideas. Working together bubbles up ideas you would not have come up with solo, which gets you further faster.
                 "</p>
                 <h2 className='text-2xl text-start mt-3 font-semibold'>Team Registration</h2>
+                <p className='italic w-96 text-left'><span className='font-bold'>Note:</span>The person registering will automatically be considered as the team leader.</p>
                 </>
             }
                {Individual?
@@ -106,8 +116,9 @@ const [Individual,setIndividual]=useState(true);
                   required
                   type="text"
                   className="mb-4"
+                  onChange={(e)=>setTeamName(e.target.value)}
                 />
-                <div className="mb-2 block">
+                {/*<div className="mb-2 block">
                   <Label
                     htmlFor="TeamLeader"
                     value="Team Leader Email"
@@ -120,7 +131,7 @@ const [Individual,setIndividual]=useState(true);
                   required
                   type="email"
                   className="mb-4"
-                />
+              />*/}
                 <div className="mb-2 block">
                   <Label
                     htmlFor="TeamMember1"
@@ -134,6 +145,7 @@ const [Individual,setIndividual]=useState(true);
                   required
                   type="email"
                   className="mb-4"
+                  onChange={(e)=>setTeamMember1Email(e.target.value)}
                 />
                 <div className="mb-2 block">
                   <Label
@@ -148,6 +160,8 @@ const [Individual,setIndividual]=useState(true);
                 //   required
                   type="email"
                   className="mb-4"
+                  onChange={(e)=>setTeamMember2Email(e.target.value)}
+
                 />
                 <div className="mb-2 block">
                   <Label
@@ -162,6 +176,7 @@ const [Individual,setIndividual]=useState(true);
                 //   required
                   type="email"
                   className="mb-4"
+                  onChange={(e)=>setTeamMember3Email(e.target.value)}
                 />
                 <div className="mb-2 block">
                   <Label
@@ -176,6 +191,7 @@ const [Individual,setIndividual]=useState(true);
                 //   required
                   type="email"
                   className="mb-4"
+                  onChange={(e)=>setTeamMember4Email(e.target.value)}
                 />
               </div>
             }
@@ -184,7 +200,7 @@ const [Individual,setIndividual]=useState(true);
                   <button
                     type="button"
                     className="inline-flex w-full justify-center items-center rounded-md bg-teal-500 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-teal-600 sm:ml-3 sm:w-auto"
-                    onClick={() => registerTournamentIndividual()}
+                    onClick={() => registerTournament()}
                   >
                     Register
                     <span className='ml-1'>

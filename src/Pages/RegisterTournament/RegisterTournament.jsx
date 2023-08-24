@@ -25,7 +25,7 @@ function RegisterTournament({tournament}) {
           />
           <div className="tournament_header flex mt-4">
             <h1 className="mt-10 font-bold text-4xl">{tournament?.name}</h1>
-            {JSON.parse(localStorage.getItem('user_data')).role==='participant'?
+            {JSON.parse(localStorage.getItem('user_data'))?.role==='participant'?
             <button
               className="rounded-md ml-auto p-5 bg-teal-400 text-white text-xl tracking-wide"
               onClick={() => setOpen(true)}
@@ -33,13 +33,7 @@ function RegisterTournament({tournament}) {
               RegisterTournament
             </button>
             :
-            <button
-            className="rounded-md ml-auto p-5 bg-teal-400 text-white text-xl tracking-wide"
-            // onClick={() => setOpen(true)}
-            disabled
-          >
-            RegisterTournament
-          </button>
+            <p></p>
             }
           </div>
           <p className="font-bold flex mt-4 text-lg">

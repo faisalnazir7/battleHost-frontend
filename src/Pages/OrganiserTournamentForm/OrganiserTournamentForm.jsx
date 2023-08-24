@@ -3,6 +3,9 @@ import Navbar from '../../Components/Navbar/Navbar'
 import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
 import { useNavigate } from "react-router-dom";
 import UploadIcon from "../../assets/uploadicon.jpg"
+import { Waveform } from '@uiball/loaders'
+
+
 export default function OrganiserTournamentForm() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -16,6 +19,8 @@ export default function OrganiserTournamentForm() {
   const[teamSize,setTeamSize]=useState("");
   const[location,setLocation]=useState("");
   const[image,setImage]=useState("");
+  const[url,setUrl]=useState("");
+  const[isLoading, setIsLoading]=useState(false);
   const navigator=useNavigate();
   const loadFile = (e) => {
     let output = document.getElementById("output");
@@ -35,7 +40,7 @@ export default function OrganiserTournamentForm() {
     })
       .then((res) => res.json())
       .then((data) => {
-        // setUrl(data.url);
+        setUrl(data.url);
         console.log(data.url);
       })
       .catch((err) => console.log(err));
@@ -67,7 +72,7 @@ export default function OrganiserTournamentForm() {
                         description: prize3
                     }
                 ],
-                bannerImg: bannerImg,
+                bannerImg: url,
                 teamSize: teamSize,
                 location: location
             }),
@@ -77,17 +82,30 @@ export default function OrganiserTournamentForm() {
         const data = await response.json();
         navigator("/dashboard")
         console.log(data);
+        setIsLoading(false)
+        
     } catch (error) {
+
         console.error(error);
+        setIsLoading(false)
+
     }
 };
-
+useEffect(()=>{
+if(url){
+  createTournament()
+}
+},[url])
     
   return (
     <>
     <Navbar/>
     <div className='OrganiserTournamentForm bg-white m-auto w-1/2 mt-8'>
-    <form onSubmit={(e)=>{e.preventDefault(); createTournament()}}>
+    <form onSubmit={(e)=>{
+      e.preventDefault(); 
+      setIsLoading(true)
+      sendImageToCloudinary();
+    }}>
       <div className="space-y-12">
         <div >
           <h2 className="text-3xl font-semibold leading-7 text-gray-900">Create your own Tournamnet</h2>
@@ -138,7 +156,7 @@ export default function OrganiserTournamentForm() {
               <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
                 <div className="text-center">
         {/*<PhotoIcon className="mx-auto h-12 w-12 text-gray-300" aria-hidden="true" id='output'/>*/}
-                  <img src={UploadIcon} alt="no preview" id='output' height={100} width={100} className='m-auto'/>
+                  <img src={UploadIcon} alt="no preview" id='output' height={250} width={250} className='m-auto'/>
                   <div className="mt-4 flex text-sm leading-6 text-gray-600">
                     <label
                       htmlFor="file-upload"
@@ -156,7 +174,6 @@ export default function OrganiserTournamentForm() {
                     <p className="pl-1">or drag and drop</p>
                   </div>
                   <p className="text-xs leading-5 text-gray-600">PNG, JPG, GIF up to 10MB</p>
-                  <button type='button' onClick={()=>sendImageToCloudinary()}>Send</button>
                 </div>
               </div>
             </div>
@@ -311,12 +328,26 @@ export default function OrganiserTournamentForm() {
         <button type="button" className="text-sm font-semibold leading-6 text-gray-900">
           Cancel
         </button>
+        {!isLoading?
         <button
           type="submit"
           className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
           >
           Save
         </button>
+        :
+        <button
+        type="submit"
+        className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+        >
+        <Waveform 
+ size={20}
+ lineWeight={3.5}
+ speed={1} 
+ color="white" 
+/>
+      </button>
+        }
       </div>
     </form>
     </div>
