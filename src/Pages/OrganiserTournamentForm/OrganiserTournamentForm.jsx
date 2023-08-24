@@ -75,7 +75,7 @@ export default function OrganiserTournamentForm() {
         });
 
         const data = await response.json();
-        navigator("/")
+        // navigator("/")
         console.log(data);
     } catch (error) {
         console.error(error);
