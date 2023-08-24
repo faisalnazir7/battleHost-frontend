@@ -6,7 +6,7 @@ function Tournaments() {
   const [tournaments, setTournaments] = useState([]);
   const getAllTournaments = async () => {
     const response = await fetch(
-      "http://localhost:5000/api/tournament/alltournaments"
+      `${import.meta.env.VITE_SERVER_URL}/api/tournament/alltournaments`
     );
     const data = await response.json();
     console.log(data);

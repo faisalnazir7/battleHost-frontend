@@ -16,9 +16,9 @@ const [Individual,setIndividual]=useState(true);
 
   const registerTournament=async()=>{
     try{
-      let teamMembers=[teamMember1Email,teamMember2Email,teamMember3Email,teamMember4Email]
-      let filterNullMembers=teamMembers.filter(team=>team!=="")
-    const response=await fetch('http://localhost:5000/api/tournament/registerfortournament',{
+let teamMembers=[teamMember1Email,teamMember2Email,teamMember3Email,teamMember4Email]
+      let filterNullMembers=teamMembers.filter(team=>team!=="")    
+const response=await fetch(`${import.meta.env.VITE_SERVER_URL}/api/tournament/registerfortournament`,{
       method:'POST',
       headers:{
         'Content-Type':'application/json',

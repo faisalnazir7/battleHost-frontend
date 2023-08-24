@@ -10,7 +10,7 @@ export default function Dropdown() {
   const navigator=useNavigate();
   async function logout() {
     try {
-        const response = await fetch('http://localhost:5000/api/users/logout', {
+        const response = await fetch(`${import.meta.env.VITE_SERVER_URL}/api/users/logout`, {
             method: 'POST', // Or the appropriate HTTP method
             credentials: 'same-origin', // This sends cookies along with the request
         });
