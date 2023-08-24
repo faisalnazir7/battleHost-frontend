@@ -53,7 +53,7 @@ export default function OrganiserTournamentForm() {
                 startDateTime: startDateTime,
                 endDateTime: endDateTime,
                 rules: rules,
-                prize: [
+                prizes: [
                     {
                         name: 'winner',
                         description: prize1
@@ -75,7 +75,7 @@ export default function OrganiserTournamentForm() {
         });
 
         const data = await response.json();
-        // navigator("/")
+        navigator("/dashboard")
         console.log(data);
     } catch (error) {
         console.error(error);
