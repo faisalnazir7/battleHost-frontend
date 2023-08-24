@@ -1,7 +1,7 @@
-import React, { useRef, useState } from 'react'; 
+import React from 'react'; 
 
 import { Swiper, SwiperSlide } from 'swiper/react'; 
-
+import { Carousel } from 'flowbite-react';
 import 'swiper/css'; 
 import 'swiper/css/navigation'; 
 import img from '../../assets/wp1842455.jpg';
@@ -22,35 +22,3 @@ export default function Carousel() {
     </> 
   ); 
 }
-
-
-// 'use client';
-
-// import { Carousel } from 'flowbite-react';
-
-// export default function SlidingInterval() {
-//   return (
-//     <Carousel slideInterval={5000}>
-//       <img
-//         alt="..."
-//         src="https://flowbite.com/docs/images/carousel/carousel-1.svg"
-//       />
-//       <img
-//         alt="..."
-//         src="https://flowbite.com/docs/images/carousel/carousel-2.svg"
-//       />
-//       <img
-//         alt="..."
-//         src="https://flowbite.com/docs/images/carousel/carousel-3.svg"
-//       />
-//       <img
-//         alt="..."
-//         src="https://flowbite.com/docs/images/carousel/carousel-4.svg"
-//       />
-//       <img
-//         alt="..."
-//         src="https://flowbite.com/docs/images/carousel/carousel-5.svg"
-//       />
-//     </Carousel>
-//   )
-// }
