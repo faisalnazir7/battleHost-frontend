@@ -113,7 +113,7 @@ export default function ExampleNavbarFour() {
         </div>
 
         {
-          document.cookie.split('=')[1]
+          !document.cookie.split('=')[1]
           ?
           <Link to='/signin'>
         <button
