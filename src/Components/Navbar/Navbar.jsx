@@ -42,6 +42,8 @@
 
 import React from 'react'
 import { Menu, X, ChevronDown, ChevronRight } from 'lucide-react'
+import Dropdown from '../Dropdown/Dropdown'
+import { Link } from 'react-router-dom'
 
 const menuItems = [
   {
@@ -109,16 +111,22 @@ export default function ExampleNavbarFour() {
             placeholder="Serach"
           ></input>
         </div>
-        <div className="ml-2 mt-2 hidden lg:block">
-          <span className="relative inline-block">
-            <img
-              className="h-10 w-10 rounded-full"
-              src="https://overreacted.io/static/profile-pic-c715447ce38098828758e525a1128b87.jpg"
-              alt="Dan_Abromov"
-            />
-            <span className="absolute bottom-0 right-0 block h-2.5 w-2.5 rounded-full bg-green-600 ring-2 ring-white"></span>
-          </span>
-        </div>
+
+        {
+          document.cookie.split('=')[1]
+          ?
+          <Link to='/signin'>
+        <button
+        type="button"
+        className="rounded-md bg-black px-3 py-2 text-sm ml-8 font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+      >
+        Login
+      </button></Link>
+      :
+       <Dropdown/>
+        }
+
+
         <div className="ml-2 lg:hidden">
           <Menu onClick={toggleMenu} className="h-6 w-6 cursor-pointer" />
         </div>
