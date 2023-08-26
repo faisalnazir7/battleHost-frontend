@@ -92,6 +92,14 @@ export default function OrganiserTournamentForm() {
     }
 };
 useEffect(()=>{
+    if(!document.cookie.split('=')[1]){
+        navigator('/signin')
+        }
+        if(JSON.parse(localStorage.getItem('user_data'))?.role!=='Host'){
+          navigator('/accessdenied')
+          }
+},[])
+useEffect(()=>{
 if(url){
   createTournament()
 }
