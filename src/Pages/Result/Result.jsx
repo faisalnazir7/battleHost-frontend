@@ -1,14 +1,20 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Navbar from '../../Components/Navbar/Navbar'
 import gold from '../../assets/gold trophy.png'
 import silver from '../../assets/silver trophy.png'
 import bronze from '../../assets/bronze trophy.png'
 import {useWindowSize} from 'react-use';
 import Confetti from 'react-confetti'
-
+import { useNavigate } from 'react-router-dom'
 
 export default function Result() {
     const { width, height } = useWindowSize()
+    const navigator=useNavigate()
+    useEffect(()=>{
+        if(!document.cookie.split('=')[1]){
+            navigator('/signin')
+            }
+    },[])
   return (
     <>
     <Navbar/>

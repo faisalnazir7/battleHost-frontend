@@ -1,8 +1,15 @@
-import React, { useRef } from 'react'
+import React, { useRef,useEffect } from 'react'
 import Navbar from '../../Components/Navbar/Navbar'
 import SampleUser from '../../assets/sampleuser.png'
+import { useNavigate } from 'react-router-dom';
 function UserProfile() {
     const image=useRef();
+    const navigator=useNavigate()
+    useEffect(()=>{
+  if(!document.cookie.split('=')[1]){
+  navigator('/signin')
+  }
+    },[])
   return (
     <>
     <Navbar/>
