@@ -3,13 +3,13 @@ import React from "react";
 import { Menu } from "lucide-react";
 import Dropdown from "../Dropdown/Dropdown";
 import { Link } from "react-router-dom";
-
+import Logo from "../../../public/bH-black.png"
 export default function ExampleNavbarFour() {
   return (
     <div className="relative w-full bg-white">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 sm:px-6 lg:px-8">
         <div className="flex items-center space-x-2">
-          <span className="text-2xl font-bold text-gray-800">battleHost</span>
+        <img src={Logo} alt="logo" className='h-12'/>
         </div>
         <div className="flex-grow ml-6">
           <input
@@ -32,8 +32,8 @@ export default function ExampleNavbarFour() {
           <Dropdown />
         )}
         <div>
-        <h2 className="text-lg font-bold">{JSON.parse(localStorage.getItem('user_data'))?.name}</h2>
-        <p className="text-m font-m">{JSON.parse(localStorage.getItem('user_data'))?.role}</p>
+          <h2 className="text-lg font-bold">{JSON.parse(localStorage.getItem('user_data'))?.name}</h2>
+          <p className="text-m font-m">{JSON.parse(localStorage.getItem('user_data'))?.role}</p>
         </div>
       </div>
     </div>
