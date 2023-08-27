@@ -10,6 +10,7 @@ function UserProfile() {
       navigator("/signin");
     }
   }, []);
+  
   const [name, setName] = useState(
     JSON.parse(localStorage.getItem("user_data"))?.name
   );
@@ -17,20 +18,54 @@ function UserProfile() {
     JSON.parse(localStorage.getItem("user_data"))?.phone
   );
   const [img,setImg]=useState(JSON.parse(localStorage.getItem("user_data"))?.photo)
+  const [isChanged,setIsChanged]=useState(false)
+  const [url,setUrl]=useState("")
   const updateUser=async()=>{
     const response=await fetch('http://localhost:5000/api/users/updateuser',{
         method:'PATCH',
+        headers:{
+          'Content-Type':'application/json'
+        },
         body:JSON.stringify({
             name:name,
             phone:phone,
-            photo:img
+            photo:url?url:JSON.parse(localStorage.getItem("user_data"))?.photo
         }),
     credentials:'include'
     })
     const data=await response.json()
-    console.log(data)
+    
     localStorage.setItem('user_data',JSON.stringify(data))
+    navigator('/profile')
   }
+  const loadFile = (e) => {
+    let output = document.getElementById("output");
+    output.src = URL.createObjectURL(e.target.files[0]);
+    output.onload = () => {
+      URL.revokeObjectURL(output.src);
+    };
+  };
+  const sendImageToCloudinary = () => {
+    const data = new FormData();
+    data.append("file", img);
+    data.append("upload_preset", "battlehost_assets");
+    data.append("cloud_name", `${import.meta.env.VITE_CLOUD_KEY}`);
+    fetch(`${import.meta.env.VITE_CLOUD_URL}`, {
+      method: "POST",
+      body: data,
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setUrl(data.url);
+        // console.log(data.url);
+      })
+      .catch((err) => console.log(err));
+  };
+  useEffect(()=>{
+if(url){
+  updateUser()
+}
+  },[url])
   return (
     <>
       <Navbar />
@@ -42,12 +77,18 @@ function UserProfile() {
               src={JSON.parse(localStorage.getItem('user_data'))?.photo?JSON.parse(localStorage.getItem('user_data'))?.photo:SampleUser}
               alt=""
               onClick={() => image.current.click()}
+              id="output"
             />
             <input
               type="file"
               accept="image/*"
               style={{ display: "none" }}
               ref={image}
+              onChange={(e)=>{
+                loadFile(e)
+                setImg(e.target.files[0])
+                setIsChanged(true)
+              }}
             />
 
             <div className="font-medium dark:text-white text-3xl mt-12 text-center">
@@ -65,7 +106,12 @@ function UserProfile() {
           <div className="mb-5">
             <form className="mt-8" onSubmit={(e)=>{
                 e.preventDefault()
-                updateUser()
+                if(isChanged){
+                  sendImageToCloudinary()
+                }
+                else{
+                  updateUser()
+                }
             }}>
               <div className="grid gap-6 mb-6 md:grid-cols-2">
                 <div>
@@ -81,7 +127,7 @@ function UserProfile() {
                     value={name}
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     // placeholder="John"
-                    required
+                    // required
                     onChange={(e)=>{setName(e.target.value)
                     // console.log(name)
                     }}
@@ -120,7 +166,7 @@ function UserProfile() {
                     // placeholder="123-45-678"
                     // pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
                     onChange={(e)=>setPhone(e.target.value)}
-                    required
+                    // required
                   />
                 </div>
               </div>
