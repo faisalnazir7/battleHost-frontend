@@ -31,6 +31,10 @@ export default function ExampleNavbarFour() {
         ) : (
           <Dropdown />
         )}
+        <div>
+        <h2 className="text-lg font-bold">{JSON.parse(localStorage.getItem('user_data'))?.name}</h2>
+        <p className="text-m font-m">{JSON.parse(localStorage.getItem('user_data'))?.role}</p>
+        </div>
       </div>
     </div>
   );

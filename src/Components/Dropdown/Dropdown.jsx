@@ -39,7 +39,7 @@ export default function Dropdown() {
           <span className="relative inline-block">
             <img
               className="h-10 w-10 rounded-full"
-              src={userProfilePic}
+              src={JSON.parse(localStorage.getItem('user_data'))?.photo?JSON.parse(localStorage.getItem('user_data'))?.photo:userProfilePic}
               alt="Profile pic"
             />
             <span className="absolute bottom-0 right-0 block h-2.5 w-2.5 rounded-full bg-green-600 ring-2 ring-white"></span>
