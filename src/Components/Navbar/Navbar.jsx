@@ -125,7 +125,10 @@ export default function ExampleNavbarFour() {
       :
        <Dropdown/>
         }
-
+        <div className='ml-2 align-middle cursor-pointer'>
+        <h1 className='text-lg font-bold'>{JSON.parse(localStorage.getItem('user_data'))?.name}</h1>
+        <p className='text-m text-left'>{JSON.parse(localStorage.getItem('user_data'))?.role}</p>
+        </div>
 
         <div className="ml-2 lg:hidden">
           <Menu onClick={toggleMenu} className="h-6 w-6 cursor-pointer" />
