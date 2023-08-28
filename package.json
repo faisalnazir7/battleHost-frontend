@@ -25,7 +25,8 @@
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.14.1",
     "react-use": "^17.4.0",
-    "swiper": "^10.0.4"
+    "swiper": "^10.0.4",
+    "typewriter-effect": "^2.20.1"
   },
   "devDependencies": {
     "@types/react": "^18.0.37",

@@ -19,7 +19,7 @@ export default function ExampleNavbarFour() {
           />
         </div>
 
-        {!document.cookie.split("=")[1] ? (
+        {!localStorage.getItem('user_data') ? (
           <Link to="/signin">
             <button
               type="button"
