@@ -29,6 +29,7 @@ function App() {
         <Route exact path="/tournaments/create" element={<OrganiserTournamentForm/>}></Route>   
         <Route exact path="/tournaments/live" element={<LiveTournaments/>}></Route>   
         <Route exact path="/accessdenied" element={<AccessDenied/>}></Route>   
+        <Route exact path="/hostdashboard" element={<HostDashboard/>}></Route>
      </Routes>
       
       {/* </Flowbite> */}
