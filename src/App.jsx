@@ -11,6 +11,7 @@ import Result from './Pages/Result/Result';
 import OrganiserTournamentForm from './Pages/OrganiserTournamentForm/OrganiserTournamentForm';
 import LiveTournaments from './Pages/LiveTournaments/LiveTournaments';
 import AccessDenied from './Pages/AccessDenied/AccessDenied';
+import HostDashboard from './Pages/HostDashboard/HostDashboard';
 function App() {
 
   return (
