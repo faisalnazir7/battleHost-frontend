@@ -6,7 +6,7 @@ import { CheckCircle, ChevronDown, ChevronUp, Menu, Star, X } from 'lucide-react
 import Footer from '../../Components/Footer/Footer'
 import Animation from '../../assets/animation.json'
 import Lottie from 'lottie-react';
-import Typewriter from 'typewriter-effect/dist/core';
+import Typewriter from 'typewriter-effect';
 import img1 from '../../../src/assets/opportunity.png'
 import img2 from '../../../src/assets/network.png'
 import img3 from '../../../src/assets/prize.png'
@@ -14,34 +14,26 @@ import img4 from '../../../src/assets/fun.png'
 
 export default function LandinngPageOne() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false)
-
-  // const [text, setText] = React.useState('Hello');
-
-  // const typewriter = new Typewriter('#typewriter', {
-  //   strings: [text],
-  //   autoStart: true,
-  // });
-  
-  // const handleChange = (e) => {
-  //   setText(e.target.value);
-  //   typewriter.setText(text);
-  // };
-
-  // const toggleMenu = () => {
-  //   setIsMenuOpen(!isMenuOpen)
-  // }
   
 
   return (
     <>
     <Navbar/>
+
     <div className="w-full">
       
       <div className="relative w-full bg-white">
         <div className="mx-auto max-w-7xl lg:grid lg:grid-cols-12 lg:gap-x-8 lg:px-8">
           <div className="flex flex-col px-4 py-12 md:py-16 lg:col-span-7 lg:gap-x-6 lg:px-6 lg:py-24 xl:col-span-6">
             <h1 className="mt-12 text-3xl font-bold tracking-tight text-black md:text-4xl lg:text-6xl">
-              Flaunt Your Talent!
+            <Typewriter
+  onInit={(typewriter) => {
+    typewriter.typeString('Flaunt Your Talent!')
+      .pauseFor(2000)
+      .start();
+  }}
+/>
+              
             </h1>
             <p className="mt-8 text-lg text-gray-700">
               This platform offers you to showcase your skills and prove yourself. Join Competition,Tournaments and many more Contests!
