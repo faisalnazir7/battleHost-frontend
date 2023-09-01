@@ -12,6 +12,7 @@ import OrganiserTournamentForm from './Pages/OrganiserTournamentForm/OrganiserTo
 import LiveTournaments from './Pages/LiveTournaments/LiveTournaments';
 import AccessDenied from './Pages/AccessDenied/AccessDenied';
 import HostDashboard from './Pages/HostDashboard/HostDashboard';
+import TournamentManage from './Pages/TournamentManage/TournamentManage';
 function App() {
 
   return (
@@ -31,6 +32,7 @@ function App() {
         <Route exact path="/tournaments/live" element={<LiveTournaments/>}></Route>   
         <Route exact path="/accessdenied" element={<AccessDenied/>}></Route>   
         <Route exact path="/hostdashboard" element={<HostDashboard/>}></Route>
+        <Route exact path="/hostdashboard/manage/:tournamentId" element={<TournamentManage/>}></Route>
      </Routes>
       
       {/* </Flowbite> */}
