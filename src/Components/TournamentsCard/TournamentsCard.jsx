@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import dateFormatter from '../../util/dateFormatter'
 
 export default function TournamentsCard({tournament,buttonContent}) {
+const endDate=new Date(tournament.endDateTime)
   return (
     <div className="w-80 rounded-2xl border ml-12 mt-12">
       <img
@@ -48,12 +49,18 @@ export default function TournamentsCard({tournament,buttonContent}) {
      {dateFormatter(tournament.startDateTime,1).split(",")[1]}
      </p>
 
-        <button
+       {Date.now()<=endDate?
+         <button
           type="button"
           className="mt-4 w-full rounded-sm bg-black px-2 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
         >
           {buttonContent}
         </button>
+      :
+     <p
+     className="text-center mt-4 w-full rounded-sm bg-red-600 px-2 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-red-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+     >Tournament Expired!</p>
+      }
       </div>
     </div>
   )

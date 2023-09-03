@@ -95,6 +95,7 @@ useEffect(()=>{
     if(!document.cookie.split('=')[1]){
         navigator('/signin')
         }
+    console.log(document.cookie)
         if(JSON.parse(localStorage.getItem('user_data'))?.role!=='Host'){
           navigator('/accessdenied')
           }
