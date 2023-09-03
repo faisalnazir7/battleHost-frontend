@@ -14,6 +14,7 @@ import AccessDenied from './Pages/AccessDenied/AccessDenied';
 import HostDashboard from './Pages/HostDashboard/HostDashboard';
 import TournamentManage from './Pages/TournamentManage/TournamentManage';
 import ParticipantsManage from './Pages/ParticipantsManage/ParticipantsManage';
+
 function App() {
 
   return (
