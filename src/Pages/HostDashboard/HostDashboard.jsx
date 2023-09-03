@@ -22,7 +22,7 @@ export default function HostDashboard() {
      <h1 className='text-3xl font-extrabold ml-12'>My Tournaments</h1>
      <div className='flex flex-wrap'>
      {tournaments?.filter(filt=>filt.organizerId._id===JSON.parse(localStorage.getItem('user_data'))?._id)?.map(tournament=>(
-      <TournamentsCard key={tournament._id} tournament={tournament} />
+      <TournamentsCard key={tournament._id} tournament={tournament} buttonContent={'Manage'}/>
      ))
     
      }

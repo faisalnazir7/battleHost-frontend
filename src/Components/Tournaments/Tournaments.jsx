@@ -19,7 +19,7 @@ function Tournaments() {
     <div className="Dasboard flex flex-wrap">
       {tournaments.map((tournament) => (
         <Link to={`/tournaments/details/${tournament._id}`}>
-          <TournamentsCard key={tournament._id} tournament={tournament} />
+          <TournamentsCard key={tournament._id} tournament={tournament} buttonContent={"Register Now!"}/>
         </Link>
       ))}
     </div>
