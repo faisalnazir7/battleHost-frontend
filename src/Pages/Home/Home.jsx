@@ -1,20 +1,25 @@
 
 'use client'
 import Navbar from '../../Components/Navbar/Navbar';
-import React from 'react'
-import { CheckCircle, ChevronDown, ChevronUp, Menu, Star, X } from 'lucide-react'
+import React, { useEffect, useState } from 'react';
 import Footer from '../../Components/Footer/Footer'
+import Typewriting from '../../Components/TextAnimation/TextAnimation'
 import Animation from '../../assets/animation.json'
 import Lottie from 'lottie-react';
-import Typewriter from 'typewriter-effect';
 import img1 from '../../../src/assets/opportunity.png'
 import img2 from '../../../src/assets/network.png'
 import img3 from '../../../src/assets/prize.png'
 import img4 from '../../../src/assets/fun.png'
 
 export default function LandinngPageOne() {
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false)
-  
+  // const [isMenuOpen, setIsMenuOpen] = React.useState(false)
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsVisible(true);
+    }, 2000);
+  }, []);
 
   return (
     <>
@@ -26,13 +31,9 @@ export default function LandinngPageOne() {
         <div className="mx-auto max-w-7xl lg:grid lg:grid-cols-12 lg:gap-x-8 lg:px-8">
           <div className="flex flex-col px-4 py-12 md:py-16 lg:col-span-7 lg:gap-x-6 lg:px-6 lg:py-24 xl:col-span-6">
             <h1 className="mt-12 text-3xl font-bold tracking-tight text-black md:text-4xl lg:text-6xl">
-            <Typewriter
-  onInit={(typewriter) => {
-    typewriter.typeString('Flaunt Your Talent!')
-      .pauseFor(2000)
-      .start();
-  }}
-/>
+            
+            <Typewriting/>
+    
               
             </h1>
             <p className="mt-8 text-lg text-gray-700">
