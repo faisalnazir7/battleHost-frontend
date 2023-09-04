@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import SideNav from '../../Components/SideNav/SideNav'
 import Navbar from '../../Components/Navbar/Navbar'
 import ManageCard from '../../Components/ManageCard/ManageCard'
 
 export default function TournamentManage() {
+
   return (
     <>
       <Navbar />
