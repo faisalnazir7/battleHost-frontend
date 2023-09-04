@@ -12,7 +12,7 @@ export default function UpdateCard() {
           alt=""
         //   onClick={() => image.current.click()}
           id="output"
-          className='h-[28rem]'
+          className='h-[27rem]'
         />
         <input
           type="file"
