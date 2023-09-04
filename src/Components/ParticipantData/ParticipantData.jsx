@@ -1,5 +1,5 @@
-import React from 'react'
-
+import React, { useEffect,useState } from 'react'
+import { useParams } from 'react-router-dom'
 const people = [
   {
     name: 'John Doe',
@@ -13,7 +13,20 @@ const people = [
  
 ]
 
-export default function ParticipantData({data}) {
+export default function ParticipantData() {
+  const {tournamentId}=useParams()
+  const [data,setData]=useState([])
+  const tournamentDetails=async()=>{
+      const response=await fetch(`${import.meta.env.VITE_SERVER_URL}/api/tournament/${tournamentId}`)
+      const data=await response.json()
+      console.log(data.getTournamentDetails[0])
+      // setTournamentData(data.getTournamentDetails[0])
+      setData(data.getTournamentDetails[0].participants)
+      
+    }
+  useEffect(()=>{
+    tournamentDetails()
+  },[])
   return (
     <>
       <section className="mx-auto w-full max-w-7xl px-4 py-4">

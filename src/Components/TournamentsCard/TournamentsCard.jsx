@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import dateFormatter from '../../util/dateFormatter'
-
+import Live from '../../assets/live.png'
+import Expired from '../../assets/expired.png'
 export default function TournamentsCard({tournament,buttonContent}) {
 const endDate=new Date(tournament.endDateTime)
   return (
@@ -21,6 +22,11 @@ const endDate=new Date(tournament.endDateTime)
      <p className="text-gray-700 text-sm font-bold">
          {tournament?.organizerId?.name}
      </p>
+     {Date.now()<=endDate?
+     <img src={Live} alt="no preview" className="ml-auto w-12 h-12 mt-[-1rem]"/>
+     :
+     <img src={Expired} alt="no preview" className="ml-auto w-12 h-12 mt-[-1rem]"/>
+}
      </span>
      <span className="flex mb-2">
      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -49,18 +55,14 @@ const endDate=new Date(tournament.endDateTime)
      {dateFormatter(tournament.startDateTime,1).split(",")[1]}
      </p>
 
-       {Date.now()<=endDate?
+       
          <button
           type="button"
           className="mt-4 w-full rounded-sm bg-black px-2 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
         >
           {buttonContent}
         </button>
-      :
-     <p
-     className="text-center mt-4 w-full rounded-sm bg-red-600 px-2 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-red-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-     >Tournament Expired!</p>
-      }
+   
       </div>
     </div>
   )

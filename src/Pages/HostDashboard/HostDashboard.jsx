@@ -1,6 +1,7 @@
 import React,{useState,useEffect} from 'react'
 import Navbar from '../../Components/Navbar/Navbar'
 import TournamentsCard from '../../Components/TournamentsCard/TournamentsCard';
+import { Link, useParams } from 'react-router-dom';
 
 export default function HostDashboard() {
   const [tournaments, setTournaments] = useState([]);
@@ -22,7 +23,9 @@ export default function HostDashboard() {
      <h1 className='text-3xl font-extrabold ml-12'>My Tournaments</h1>
      <div className='flex flex-wrap'>
      {tournaments?.filter(filt=>filt.organizerId._id===JSON.parse(localStorage.getItem('user_data'))?._id)?.map(tournament=>(
+      <Link to={`/hostdashboard/manage/${tournament._id}`}>
       <TournamentsCard key={tournament._id} tournament={tournament} buttonContent={'Manage'}/>
+      </Link>
      ))
     
      }
