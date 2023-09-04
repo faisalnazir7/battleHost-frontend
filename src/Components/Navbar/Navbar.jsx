@@ -9,7 +9,9 @@ export default function Navbar() {
     <div className="relative w-full bg-white">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 sm:px-6 lg:px-8">
         <div className="flex items-center space-x-2 mb-3">
+        <Link to='/'>
         <img src={Logo} alt="logo" className='h-12'/>
+        </Link>
         </div>
         <div className="flex-grow ml-6">
           <input

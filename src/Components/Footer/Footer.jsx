@@ -1,7 +1,7 @@
 import React from 'react'
 import Logo from '../../../public/bH-black.png'
 
-export default function FooterThree() {
+export default function Footer() {
   return (
     <section className="relative overflow-hidden bg-white py-8">
       <div className="container relative z-10 mx-auto px-4">
