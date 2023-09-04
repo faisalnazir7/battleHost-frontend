@@ -14,6 +14,7 @@ import AccessDenied from './Pages/AccessDenied/AccessDenied';
 import HostDashboard from './Pages/HostDashboard/HostDashboard';
 import TournamentManage from './Pages/TournamentManage/TournamentManage';
 import ParticipantsManage from './Pages/ParticipantsManage/ParticipantsManage';
+import TournamentManageUpdate from './Pages/TournamentManageUpdate/TournamentManageUpdate';
 
 function App() {
 
@@ -36,6 +37,7 @@ function App() {
         <Route exact path="/hostdashboard" element={<HostDashboard/>}></Route>
         <Route exact path="/hostdashboard/manage/:tournamentId" element={<TournamentManage/>}></Route>
         <Route exact path="/hostdashboard/manage/:tournamentId/participants" element={<ParticipantsManage/>}></Route>
+        <Route exact path="/hostdashboard/manage/:tournamentId/update" element={<TournamentManageUpdate/>}></Route>
      </Routes>
       
       {/* </Flowbite> */}
