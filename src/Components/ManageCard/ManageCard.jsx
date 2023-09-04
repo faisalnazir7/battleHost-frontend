@@ -1,9 +1,11 @@
 import {  MapPin } from 'lucide-react'
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function ManageCard() {
   return (
-    <div className="flex w-4xl h-4xl flex-col items-center rounded-md border md:flex-row mt-20 ml-36">
+    <div className="flex w-4xl h-4xl flex-col items-center rounded-md border md:flex-row mt-20 ml-36
+    ">
       <div className="h-full w-full ml-8 md:h-[200px] md:w-[300px]">
         <img
           src="https://images.unsplash.com/photo-1522199755839-a2bacb67c546?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGJsb2d8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"
@@ -19,6 +21,9 @@ export default function ManageCard() {
           </h1>
           <p className="mt-3 text-sm text-gray-600">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, debitis?
+          </p>
+          <p className="mt-3 text-sm text-gray-600">
+            Tournament Rules
           </p>
           <div className='flex'>
           <div className="mt-4">
@@ -38,18 +43,17 @@ export default function ManageCard() {
           </div>
           <br />
           <div className='flex justify-end'>
+            <Link to='/hostdashboard/manage/:tournamentId/update'>
           <button type="button"
         className="rounded-md bg-blue-700 px-3 py-2 text-sm font-semibold text-white shadow-sm mr-8 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black">
                     Update
-      </button>
+      </button></Link>
       <button type="button"
         className="rounded-md bg-red-700 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black">
                     Delete
       </button>
           </div>
-          <div className="mt-3 flex items-center space-x-2">
-         
-          </div>
+
         </div>
       </div>
     </div>
