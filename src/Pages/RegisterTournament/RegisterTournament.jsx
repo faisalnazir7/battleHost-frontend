@@ -8,7 +8,6 @@ import dateFormatter from "../../util/dateFormatter";
 function RegisterTournament({tournament}) {
   const [open, setOpen] = React.useState(false);
   const navigator=useNavigate()
-  
   return (
     <>
       <Navbar />
@@ -25,7 +24,7 @@ function RegisterTournament({tournament}) {
           />
           <div className="tournament_header flex mt-4">
             <h1 className="mt-10 font-bold text-4xl">{tournament?.name}</h1>
-            {JSON.parse(localStorage.getItem('user_data'))?.role==='participant'?
+            {JSON.parse(localStorage.getItem('user_data'))?.role==='participant' && tournament?.endDateTime&& Date.now()<=new Date(tournament.endDateTime)?
             <button
               className="rounded-md ml-auto p-5 bg-teal-400 text-white text-xl tracking-wide"
               onClick={() => setOpen(true)}
