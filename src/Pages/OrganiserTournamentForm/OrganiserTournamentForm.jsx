@@ -108,7 +108,7 @@ if(url){
   return (
     <>
     <Navbar/>
-    <div className='OrganiserTournamentForm bg-white m-auto w-1/2 mt-8'>
+    <div className='OrganiserTournamentForm bg-white m-auto w-1/2 mt-8 mb-24'>
     <form onSubmit={(e)=>{
       e.preventDefault(); 
       setIsLoading(true)
@@ -116,14 +116,14 @@ if(url){
     }}>
       <div className="space-y-12">
         <div >
-          <h2 className="text-3xl font-semibold leading-7 text-gray-900">Create your own Tournamnet</h2>
+          <h2 className="text-3xl font-bold leading-tight text-black sm:text-4xl">Create your own Tournamnet</h2>
           {/* <p className="mt-1 text-sm leading-6 text-gray-600">
             This information will be displayed publicly so be careful what you share.
           </p> */}
 
           <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-            <div className="sm:col-span-4">
-              <label htmlFor="title" className="block text-base font-medium leading-6 text-gray-900">
+            <div className="sm:col-span-8">
+              <label htmlFor="title" className="block text-base font-medium text-gray-900">
                 Tournament Name
               </label>
               <div className="mt-2">
@@ -141,7 +141,7 @@ if(url){
             </div>
 
             <div className="col-span-full">
-              <label htmlFor="about" className="block text-base font-medium leading-6 text-gray-900">
+              <label htmlFor="about" className="block text-base font-medium text-gray-900">
                 Description
               </label>
               <div className="mt-2">
@@ -158,13 +158,13 @@ if(url){
             </div>
 
             <div className="col-span-full">
-              <label htmlFor="cover-photo" className="block text-base font-medium leading-6 text-gray-900">
+              <label htmlFor="cover-photo" className="block text-base font-medium text-gray-900">
                 Cover photo
               </label>
               <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
                 <div className="text-center">
         {/*<PhotoIcon className="mx-auto h-12 w-12 text-gray-300" aria-hidden="true" id='output'/>*/}
-                  <img src={UploadIcon} alt="no preview" id='output' height={250} width={250} className='m-auto'/>
+                  <img src={UploadIcon} alt="no preview" id='output' height={250} className='m-auto w-28'/>
                   <div className="mt-4 flex text-sm leading-6 text-gray-600">
                     <label
                       htmlFor="file-upload"
@@ -187,7 +187,7 @@ if(url){
             </div>
 
             <div className="col-span-full sm:col-span-3">
-              <label htmlFor="location" className="block text-base font-medium leading-6 text-gray-900">
+              <label htmlFor="location" className="block text-base font-medium text-gray-900">
                 Location
               </label>
               <div className="mt-2">
@@ -207,7 +207,7 @@ if(url){
         <div>
           <div className="mt-10 grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-6">
             <div className="sm:col-span-3">
-              <label htmlFor="startDate" className="block text-base font-medium leading-6 text-gray-900">
+              <label htmlFor="startDate" className="block text-base font-medium text-gray-900">
               Start Date
               </label>
               <div className="mt-2">
@@ -222,8 +222,8 @@ if(url){
               </div>
             </div>
 
-            <div className="sm:col-span-4">
-              <label htmlFor="endDate" className="block text-base font-medium leading-6 text-gray-900">
+            <div className="sm:col-span-3">
+              <label htmlFor="endDate" className="block text-base font-medium text-gray-900">
               End Date
               </label>
               <div className="mt-2">
@@ -238,13 +238,14 @@ if(url){
               </div>
             </div>
 
-            <div className="col-span-full">
-              <label htmlFor="teamSize" className="block text-base font-medium leading-6 text-gray-900">
+            <div className="col-span-2">
+              <label htmlFor="teamSize" className="block text-base font-medium text-gray-900">
               Team Size
               </label>
               <div className="mt-2">
                 <input
-                  type="text"
+                  type="number"
+                  min="0"
                   name="teamSize"
                   id="teamSize"
                   autoComplete="teamSize"
@@ -256,7 +257,7 @@ if(url){
             </div>
 
             <div className="col-span-full">
-              <label htmlFor="rules" className="block text-base font-medium leading-6 text-gray-900">
+              <label htmlFor="rules" className="block text-base font-medium text-gray-900">
               Tournament Rules
               </label>
               <div className="mt-2">
@@ -272,11 +273,11 @@ if(url){
               </div>
             </div>
 
-            <h2 className="block text-base font-medium leading-6 text-gray-900">
+            {/* <h2 className="block text-base font-medium text-gray-900">
               Prize Description
-              </h2>
-            <div className="col-span-full">
-              <label htmlFor="prize1" className="block text-base font-medium leading-6 text-gray-900">
+              </h2> */}
+            <div className="col-span-3">
+              <label htmlFor="prize1" className="block text-base font-medium text-gray-900">
               1st Prize
               </label>
               <div className="mt-2">
@@ -292,8 +293,8 @@ if(url){
               </div>
             </div>
 
-            <div className="col-span-full">
-              <label htmlFor="prize2" className="block text-base font-medium leading-6 text-gray-900">
+            <div className="col-span-3">
+              <label htmlFor="prize2" className="block text-base font-medium text-gray-900">
               2nd Prize
               </label>
               <div className="mt-2">
@@ -309,8 +310,8 @@ if(url){
               </div>
             </div>
 
-            <div className="col-span-full">
-              <label htmlFor="prize3" className="block text-base font-medium leading-6 text-gray-900">
+            <div className="col-span-3">
+              <label htmlFor="prize3" className="block text-base font-medium text-gray-900">
               3rd Prize
               </label>
               <div className="mt-2">
@@ -339,7 +340,7 @@ if(url){
         {!isLoading?
         <button
           type="submit"
-          className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          className="rounded-md bg-indigo-600 px-6 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
           >
           Save
         </button>
