@@ -1,4 +1,4 @@
-import {  MapPin } from 'lucide-react'
+import {  MapPin ,Trash2} from 'lucide-react'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import dateFormatter from '../../util/dateFormatter'
@@ -59,12 +59,12 @@ export default function ManageCard() {
           <div className='flex justify-end'>
             <Link to='/hostdashboard/manage/:tournamentId/update'>
           <button type="button"
-        className="rounded-md bg-blue-700 px-3 py-2 text-sm font-semibold text-white shadow-sm mr-8 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black">
+        className="rounded-md bg-blue-700 px-3 py-2 mt-1 text-sm font-semibold text-white shadow-sm mr-8 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black">
                     Update
       </button></Link>
       <button type="button"
         className="rounded-md bg-red-700 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black">
-                    Delete
+                    <Trash2 />
       </button>
           </div>
 
