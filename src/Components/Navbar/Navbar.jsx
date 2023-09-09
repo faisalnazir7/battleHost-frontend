@@ -2,10 +2,11 @@
 import React, { useState, useEffect } from "react";
 import { Menu } from "lucide-react";
 import Dropdown from "../Dropdown/Dropdown";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Logo from "../../../public/bH-black.png";
 export default function Navbar() {
   const [search, setSearch] = useState("");
+  const navigator=useNavigate()
   const [tournaments, setTournaments] = useState([]);
   const getAllTournaments = async () => {
     const response = await fetch(
@@ -46,14 +47,16 @@ export default function Navbar() {
             <div className="fixed w-[250px] mt-2 z-30 border-solid border-2 rounded-xl shadow-md p-4 bg-white">
               {searchData(search).length>0?
                 searchData(search)?.map((result) => (
-                <Link to={`tournaments/details/${result._id}`}>
+                <div onClick={()=>{navigator(`/tournaments/details/${result._id}`)
+              setSearch("")
+              }}>
                   <h1>
                     <b>{result?.name}</b>
                   </h1>
                   <p className="text-sm mt-1 mb-2">
                     {result?.organizerId?.name}
                   </p>
-                </Link>
+                </div>
               ))
             :
             <p className="font-semibold">No results found.</p>

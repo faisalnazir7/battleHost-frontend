@@ -1,16 +1,27 @@
 import {  MapPin ,Trash2} from 'lucide-react'
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import dateFormatter from '../../util/dateFormatter'
 import { Link } from 'react-router-dom'
 export default function ManageCard() {
   const {tournamentId}=useParams()
   const [tournamentData,setTournamentData]=useState([])
-
+const navigator=useNavigate()
   const getTournamentData=async()=>{
     const response=await fetch(`${import.meta.env.VITE_SERVER_URL}/api/tournament/${tournamentId}`)
     const data=await response.json()
     setTournamentData(data.getTournamentDetails[0])
+  }
+  const deleteTournament=async()=>{
+    const response=await fetch(`${import.meta.env.VITE_SERVER_URL}/api/tournament/${tournamentId}/deletetournament`,{
+      method:'DELETE',
+      headers:{
+        'Content-Type':'application/json'
+      },
+      credentials:'include'
+    })
+    const data=await response.json()
+    console.log('Deleted:',data)
   }
   useEffect(()=>{
 
@@ -62,6 +73,12 @@ export default function ManageCard() {
                     Update
       </button></Link>
       <button type="button"
+      onClick={async()=>{
+        if(window.confirm('Do you really want to delete the tournament?')){
+        await deleteTournament()
+      navigator('/hostdashboard')
+        }
+      }}
         className="rounded-md bg-red-700 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black">
                     <Trash2 />
       </button>

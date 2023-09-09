@@ -5,6 +5,20 @@ import Navbar from '../../Components/Navbar/Navbar'
 import UpdateCard from '../../Components/UpdateCard/UpdateCard'
 
 export default function TournamentManageUpdate() {
+  const {tournamentId}=useParams()
+  const [tournamentData,setTournamentData]=useState([])
+  const getTournamentData = async () => {
+    const response = await fetch(
+      `${import.meta.env.VITE_SERVER_URL}/api/tournament/${tournamentId}`
+    );
+    const data = await response.json();
+    console.log(data.getTournamentDetails[0]);
+    setTournamentData(await data.getTournamentDetails[0]);
+   
+  };
+  useEffect(() => {
+    getTournamentData();
+  }, []);
   return (
     <>
       <Navbar />
@@ -22,7 +36,9 @@ export default function TournamentManageUpdate() {
 
           <div >
             
-            <UpdateCard/>
+          {tournamentData._id &&
+            <UpdateCard tournament={tournamentData} />
+          }
           </div>
         </div>
       </div>
