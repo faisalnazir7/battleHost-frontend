@@ -10,7 +10,7 @@ export default function ManageCard() {
   const getTournamentData=async()=>{
     const response=await fetch(`${import.meta.env.VITE_SERVER_URL}/api/tournament/${tournamentId}`)
     const data=await response.json()
-    console.log(data.getTournamentDetails[0])
+    console.log(data)
     setTournamentData(data.getTournamentDetails[0])
   }
   useEffect(()=>{
@@ -57,7 +57,7 @@ export default function ManageCard() {
           </div>
           <br />
           <div className='flex justify-end'>
-            <Link to='/hostdashboard/manage/:tournamentId/update'>
+            <Link to={`/hostdashboard/manage/${tournamentId}/update`}>
           <button type="button"
         className="rounded-md bg-blue-700 px-3 py-2 mt-1 text-sm font-semibold text-white shadow-sm mr-8 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black">
                     Update
