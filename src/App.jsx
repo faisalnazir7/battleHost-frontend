@@ -15,6 +15,7 @@ import HostDashboard from './Pages/HostDashboard/HostDashboard';
 import TournamentManage from './Pages/TournamentManage/TournamentManage';
 import ParticipantsManage from './Pages/ParticipantsManage/ParticipantsManage';
 import TournamentManageUpdate from './Pages/TournamentManageUpdate/TournamentManageUpdate';
+import ManageResult from './Pages/ManageResult/ManageResult';
 
 function App() {
 
@@ -38,6 +39,7 @@ function App() {
         <Route exact path="/hostdashboard/manage/:tournamentId" element={<TournamentManage/>}></Route>
         <Route exact path="/hostdashboard/manage/:tournamentId/participants" element={<ParticipantsManage/>}></Route>
         <Route exact path="/hostdashboard/manage/:tournamentId/update" element={<TournamentManageUpdate/>}></Route>
+        <Route exact path="/hostdashboard/manage/:tournamentId/result" element={<ManageResult/>}></Route>
      </Routes>
       
       {/* </Flowbite> */}
