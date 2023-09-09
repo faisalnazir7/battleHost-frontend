@@ -10,7 +10,6 @@ export default function ManageCard() {
   const getTournamentData=async()=>{
     const response=await fetch(`${import.meta.env.VITE_SERVER_URL}/api/tournament/${tournamentId}`)
     const data=await response.json()
-    console.log(data)
     setTournamentData(data.getTournamentDetails[0])
   }
   useEffect(()=>{
