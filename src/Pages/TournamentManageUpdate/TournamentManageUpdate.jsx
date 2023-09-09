@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import { useParams } from 'react-router-dom'
 import SideNav from '../../Components/SideNav/SideNav'
 import Navbar from '../../Components/Navbar/Navbar'
