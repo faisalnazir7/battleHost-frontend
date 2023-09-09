@@ -10,7 +10,7 @@ export default function SideNav() {
       <div className="mt-6 flex flex-1 flex-col justify-between">
         <nav className="mx-3 space-y-6 ">
           <div className="space-y-8 ">
-            <Link to=""
+            <Link to={`/hostdashboard/manage/${tournamentId}`}
               className="flex transform items-center rounded-lg px-3 py-2 text-gray-600 transition-colors duration-300 hover:bg-gray-100 hover:text-gray-700"
             >
               <BarChart className="h-5 w-5" aria-hidden="true" />
@@ -23,13 +23,13 @@ export default function SideNav() {
               <span className="mx-2 text-base  font-medium">Team Members</span>
             </Link>
 
-            <Link to=""
+            {/* <Link to=""
               className="flex transform items-center rounded-lg px-3 py-2 text-gray-600 transition-colors duration-300 hover:bg-gray-100 hover:text-gray-700"
             >
               <Trophy className="h-5 w-5" aria-hidden="true" />
               <span className="mx-2 text-base  font-medium">Prize Rule</span>
-            </Link>
-            <Link to=""
+            </Link> */}
+            <Link to={`/hostdashboard/manage/${tournamentId}/result`}
               className="flex transform items-center rounded-lg px-3 py-2 text-gray-600 transition-colors duration-300 hover:bg-gray-100 hover:text-gray-700"
             >
               <Award className="h-5 w-5" aria-hidden="true" />
