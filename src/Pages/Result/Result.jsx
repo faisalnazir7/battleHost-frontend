@@ -50,27 +50,27 @@ export default function Result() {
    {message?
     <p className='text-center text-3xl'>{message}</p>
     :
-     <div className="Result flex m-auto w-1/2">
+     <div className="Result block md:flex m-auto w-1/2 ">
 
-    <div className="second mt-40">
-            <img src={silver} alt=""  className='w-52'/>
-            <div className="resContent text-center text-xl bg-gray-300 h-32 -mt-6">
+    <div className="second mt-40 relative bottom-[-13rem] md:static">
+            <img src={silver} alt=""  className='md:w-52 w-36 '/>
+            <div className="resContent text-center text-base md:text-xl bg-gray-300 h-32 -mt-6">
                 <h1 className='pt-4'>TeamName/Email: {resultData?.resultsData[1]?resultData?.resultsData[1]:""}</h1>
                 <h2>Position:{resultData?.prizes[1]?.name?resultData?.prizes[1]?.name:""}</h2>
                 <h3>Rs {resultData?.prizes[1]?.description?resultData?.prizes[1]?.description:""}</h3>
             </div>
         </div>
-        <div className="first ">
-            <img src={gold} alt=""  className='w-96'/>
-            <div className="resContent text-center text-xl bg-amber-300 h-32 -mt-7">
+        <div className="first relative top-[-28rem] md:static ">
+            <img src={gold} alt=""  className='w-96 '/>
+            <div className="resContent text-center text-base md:text-xl  bg-amber-300 h-32 -mt-7">
                 <h1 className='pt-4'>TeamName/Email: {resultData?.resultsData[0]?resultData?.resultsData[0]:""}</h1>
                 <h2>Position:{resultData?.prizes[0]?.name?resultData?.prizes[0]?.name:""}</h2>
                 <h3>Rs {resultData?.prizes[0]?.description?resultData?.prizes[0]?.description:""}</h3>
             </div>
         </div>
-        <div className="third mt-40">
-            <img src={bronze} alt=""  className='w-44'/>
-            <div className="resContent text-center text-xl bg-[#bc752f] h-32 -mt-7">
+        <div className="third mt-40 relative top-[-10rem] md:static">
+            <img src={bronze} alt=""  className='md:w-44 w-36'/>
+            <div className="resContent text-center text-base md:text-xl  bg-[#bc752f] h-32 -mt-7">
                 <h1 className='pt-4'>TeamName/Email: {resultData?.resultsData[2]?resultData?.resultsData[2]:""}</h1>
                 <h2>Position:{resultData?.prizes[2]?.name?resultData?.prizes[2]?.name:""}</h2>
                 <h3>Rs {resultData?.prizes[2]?.description?resultData?.prizes[2]?.description:""}</h3>
