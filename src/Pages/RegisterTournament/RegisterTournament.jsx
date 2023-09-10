@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import Popup from "./Popup";
 import Navbar from "../../Components/Navbar/Navbar";
 import Prizes from "./Prizes";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import dateFormatter from "../../util/dateFormatter";
 import { Clock } from 'lucide-react';
 
 function RegisterTournament({tournament}) {
   const [open, setOpen] = React.useState(false);
   const navigator=useNavigate()
+  const {tournamentId}=useParams()
   return (
     <>
       <Navbar />
@@ -156,7 +157,7 @@ function RegisterTournament({tournament}) {
        <div className="py-6">
         <button
         className="rounded-md p-5 bg-teal-400 text-white text-xl flex m-auto"
-        onClick={()=>navigator('/result')}
+        onClick={()=>navigator(`/tournaments/details/${tournamentId}/result`)}
       >
        <span className="mr-2">Get Results</span> 
 
