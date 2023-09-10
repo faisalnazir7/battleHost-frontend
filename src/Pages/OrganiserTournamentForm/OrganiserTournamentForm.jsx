@@ -4,9 +4,12 @@ import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
 import { useNavigate } from "react-router-dom";
 import UploadIcon from "../../assets/uploadicon.jpg"
 import { Waveform } from '@uiball/loaders'
-
+import Category from './Category';
 
 export default function OrganiserTournamentForm() {
+  const categories=[
+    "Tournament", "Hackathon", "Event"
+  ]
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [startDateTime, setStartDateTime] = useState(new Date());
@@ -21,7 +24,9 @@ export default function OrganiserTournamentForm() {
   const[image,setImage]=useState("");
   const[url,setUrl]=useState("");
   const[isLoading, setIsLoading]=useState(false);
+  const[category,setCategory]=useState(categories[0])
   const navigator=useNavigate();
+  
   const loadFile = (e) => {
     let output = document.getElementById("output");
     output.src = URL.createObjectURL(e.target.files[0]);
@@ -55,6 +60,7 @@ export default function OrganiserTournamentForm() {
             body: JSON.stringify({
                 name: title,
                 description: description,
+                category,
                 startDateTime: startDateTime,
                 endDateTime: endDateTime,
                 rules: rules,
@@ -156,7 +162,26 @@ if(url){
                 />
               </div>
             </div>
-
+            <div className="col-span-full">
+            <label
+              className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+              htmlFor="category"
+            >
+              Category
+            </label>
+            {/* <input
+  className="flex h-10 w-full rounded-md border border-black/30 bg-transparent px-3 py-2 text-sm placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+  type="text"
+  placeholder="Enter the category"
+  id="category"
+  required
+></input>*/}
+            <Category
+              selected={category}
+              setSelected={setCategory}
+              category={categories}
+            />
+          </div>
             <div className="col-span-full">
               <label htmlFor="cover-photo" className="block text-base font-medium text-gray-900">
                 Cover photo
