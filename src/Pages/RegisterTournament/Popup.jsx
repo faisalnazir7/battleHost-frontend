@@ -71,16 +71,16 @@ const response=await fetch(`${import.meta.env.VITE_SERVER_URL}/api/tournament/re
                 <h1 className='text-3xl font-bold'>Register for Tournament</h1>
                {Individual?
                 <>
-                 <p className='text-m italic my-4 text-center w-96'>"Life is like playing a violin solo in public and learning the instrument as one goes on.
+                 <p className='text-m italic my-4 text-center ml-8 w-96'>"Life is like playing a violin solo in public and learning the instrument as one goes on.
                 "</p>
-                <h2 className='text-2xl text-start mt-3 font-semibold'>Individual Registration</h2>
+                <h2 className='text-2xl text-center mt-6 font-semibold'>Individual Registration</h2>
                </>
                 :
                 <>
-                <p className='text-m italic my-4 w-96'>"Collaboration is like carbonation for fresh ideas. Working together bubbles up ideas you would not have come up with solo, which gets you further faster.
+                <p className='text-m italic my-4 ml-8 w-96'>"Collaboration is like carbonation for fresh ideas. Working together bubbles up ideas you would not have come up with solo, which gets you further faster.
                 "</p>
-                <h2 className='text-2xl text-start mt-3 font-semibold'>Team Registration</h2>
-                <p className='italic w-96 text-left'><span className='font-bold'>Note:</span>The person registering will automatically be considered as the team leader.</p>
+                <h2 className='text-2xl text-center mt-3 font-semibold text-red-400'>Team Registration</h2>
+                <p className='italic w-96 text-start mt-8'><span className='font-bold'>Note: </span> The person registering will automatically be considered as the team leader.</p>
                 </>
             }
                {Individual?
@@ -210,11 +210,11 @@ const response=await fetch(`${import.meta.env.VITE_SERVER_URL}/api/tournament/re
 </span>
                   </button>
                   {Individual?
-                  <p className='text-center mt-8'>Participate as a Team? <span className='text-sky-400 cursor-pointer' onClick={()=>{setIndividual(false)
+                  <p className='text-center mt-2'>Participate as a Team? <span className='text-sky-400 cursor-pointer hover:underline' onClick={()=>{setIndividual(false)
                   setTypeReg('team')
-                  }}>Register Here</span></p>
+                  }}>Click Here</span></p>
                 :
-                <p className='text-center mt-8'>Participate solo? <span className='text-sky-400 cursor-pointer' onClick={()=>{setIndividual(true)
+                <p className='text-center mt-2 mr-8'>Participate solo? <span className='text-sky-400 cursor-pointer' onClick={()=>{setIndividual(true)
                 setTypeReg('individual')
                 }}>Register Here</span></p>
 

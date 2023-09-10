@@ -10,6 +10,7 @@ import img1 from '../../../src/assets/opportunity.png'
 import img2 from '../../../src/assets/network.png'
 import img3 from '../../../src/assets/prize.png'
 import img4 from '../../../src/assets/fun.png'
+import { Link } from 'react-router-dom';
 
 export default function LandinngPageOne() {
   // const [isMenuOpen, setIsMenuOpen] = React.useState(false)
@@ -41,12 +42,14 @@ export default function LandinngPageOne() {
             </p>
             
               <div>
+                <Link to="/signup">
                 <button
                   type="button"
                   className="rounded-xl bg-black mt-8 px-12 py-4 text-sm font-semibold text-red-400 shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                 >
                   Register Now!
                 </button>
+                </Link>
               </div>
             
           </div>
