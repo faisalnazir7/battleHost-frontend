@@ -21,15 +21,15 @@ function RegisterTournament({tournament}) {
               "https://d8it4huxumps7.cloudfront.net/uploads/images/6481ae7a08a26_flipkart-grid-50-software-development-track.png?d=1280x371"
             }
             alt="no preview"
-            className="w-full rounded-lg"
+            className="w-full mrounded-lg"
           />
-          <div className="tournament_header flex mt-4">
-            <h1 className="mt-8 ml-8 font-bold text-4xl">{tournament?.name}</h1>
+          <div className="tournament_header md:flex mt-4 block text-center">
+            <h1 className=" mt-8 ml-8 font-bold text-4xl m-auto mb-6 md:mb-0">{tournament?.name}</h1>
             
 
             {JSON.parse(localStorage.getItem('user_data'))?.role==='participant' && tournament?.endDateTime&& Date.now()<=new Date(tournament.endDateTime)?
             <button
-              className="rounded-xl mt-2 mr-4 bg-black ml-auto p-5 text-xl tracking-wide font-semibold text-red-400 shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black hover:text-red-500"
+              className="rounded-xl mt-2 md:mr-4 bg-black md:ml-auto  p-5 md:text-xl text-lg tracking-wide font-semibold text-red-400 shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black hover:text-red-500"
               
               onClick={() => setOpen(true)}
             >
@@ -40,7 +40,7 @@ function RegisterTournament({tournament}) {
             }
             
           </div>
-          <div className="shadow-2xl w-80 h-80 mt-8 border-2 rounded-xl pl-4 pt-1 ml-auto">
+          <div className="md:shadow-2xl shadow-xl md:w-80 md:h-80 w-full h-full mt-8 border-2 rounded-xl pl-4 pt-1 ml-auto ">
             <h2 className="font-bold text-2xl mt-6 text-center text-green-500">Application Date</h2>
             <p className="font-bold flex text-lg mt-8 ">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -50,7 +50,7 @@ function RegisterTournament({tournament}) {
 {' '}&nbsp;From  <br/>{dateFormatter(tournament?.startDateTime, 0)}
           </p>
           
-          <p className="font-bold flex text-lg mt-16">
+          <p className="font-bold flex text-lg md:mt-16 mt-8">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
           <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z" />
         </svg>
@@ -58,8 +58,8 @@ function RegisterTournament({tournament}) {
 {' '}&nbsp;Till <br/> {dateFormatter(tournament?.endDateTime,0)}
           </p>
           </div>
-          <div className="ml-12 -mt-80">
-          <div className="shadow-2xl w-[60rem] h-[20rem] border-2 rounded-xl pl-4 pt-1">
+          <div className="md:ml-12 md:-mt-80 m-auto ">
+          <div className="md:shadow-2xl mt-8 shadow-xl md:w-[60rem] md:h-[20rem] border-2 rounded-xl pl-4 md:pt-1 md:m-0 m-auto ">
           <p className="font-bold flex mt-8 text-lg">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -119,16 +119,16 @@ function RegisterTournament({tournament}) {
         
 {' '}&nbsp;Till {dateFormatter(tournament?.endDateTime,0)}
           </p> */}
-          <p className="font-bold text-lg mt-16 italic text-red-500">Already {tournament?.participants.length} Participants have registered for the tournament</p>
+          <p className="font-bold text-lg md:mt-16 mt-4 italic text-red-500">Already {tournament?.participants.length} Participants have registered for the tournament</p>
           </div>
           <div className="description mt-6">
-            <h1 className="text-2xl font-semibold">Tournament Description</h1>
-            <p className="text-base font-medium">
+            <h1 className="text-2xl font-semibold text-center md:text-left">Tournament Description</h1>
+            <p className="text-base font-medium mt-2">
               {tournament?.description}
             </p>
           </div>
           <div className="rules mt-6">
-          <h1 className="text-2xl font-semibold">Rules</h1>
+          <h1 className="text-2xl font-semibold text-center md:text-left">Rules</h1>
           <ul className="list-disc p-4">
           <li className="text-base">{tournament?.rules}</li>
           {/*<li className="text-base">No Plagiarism Allowed</li>
@@ -139,8 +139,8 @@ function RegisterTournament({tournament}) {
           </ul>
           </div>
           <div className="positions mt-6">
-          <h1 className="text-2xl font-semibold">Rewards & Prizes</h1>
-          <div className="prizes_display flex">
+          <h1 className="text-2xl font-semibold text-center md:text-left">Rewards & Prizes</h1>
+          <div className="prizes_display md:flex block">
 
           {tournament?.prizes.length>0?
             tournament?.prizes?.map(prize=>(
