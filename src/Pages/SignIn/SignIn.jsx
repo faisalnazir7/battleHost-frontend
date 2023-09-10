@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import Animation from '../../assets/animation2.json'
 import Lottie from 'lottie-react';
+import Logo from "../../../public/bH-black.png";
 
 export default function SignIn() {
         const[email,setEmail]=useState('');
@@ -38,6 +39,11 @@ export default function SignIn() {
       
   return (
     <section className='mt-6'>
+      <div className="flex items-center space-x-2 mb-3 ml-3 ">
+            <Link to="/">
+              <img src={Logo} alt="logo" className="h-12" />
+            </Link>
+          </div>
       <div className="grid grid-cols-1 lg:grid-cols-2">
         <div className="flex items-center justify-center px-4 py-10 sm:px-6 sm:py-16 lg:px-8 lg:py-24">
           <div className="xl:mx-auto xl:w-full xl:max-w-sm 2xl:max-w-md">
