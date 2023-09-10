@@ -5,7 +5,7 @@ import Expired from '../../assets/expired.png'
 export default function TournamentsCard({tournament,buttonContent}) {
 const endDate=new Date(tournament.endDateTime)
   return (
-    <div className="w-80 rounded-2xl border ml-12 mt-12">
+    <div className="w-80 rounded-2xl border  md:ml-12 mt-12">
       <img
         src={tournament?.bannerImg?tournament.bannerImg:"https://secure-content.meetupstatic.com/images/classic-events/514351843/676x380.jpg"}
         alt="Laptop"

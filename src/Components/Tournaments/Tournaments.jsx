@@ -16,7 +16,7 @@ function Tournaments() {
     getAllTournaments();
   }, []);
   return (
-    <div className="Dasboard flex flex-wrap">
+    <div className="Dasboard flex flex-wrap justify-center">
       {tournaments.map((tournament) => (
         <Link to={`/tournaments/details/${tournament._id}`}>
           <TournamentsCard key={tournament._id} tournament={tournament} buttonContent={"Register Now!"}/>
