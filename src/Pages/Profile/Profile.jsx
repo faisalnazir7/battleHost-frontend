@@ -13,20 +13,21 @@ const Profile = () => {
   return (
     <>
     <Navbar/>
-    <div className='UserProfile flex'>
-    <div className="userprofileLeft">
-    <div className="mt-20 ml-40 mb-5 ">
-    <img className="w-72  shadow-lg rounded-full cursor-pointer" src={JSON.parse(localStorage.getItem('user_data'))?.photo?JSON.parse(localStorage.getItem('user_data'))?.photo:SampleUser} alt=""/>
+    <div className='UserProfile block md:flex'>
+    <div className="userprofileLeft text-center">
+    <div className="mt-20 ml-16 md:mb-5 md:ml-40">
+    <img className="md:w-72 w-40 inline-block md:ml-6 shadow-lg rounded-full cursor-pointer" src={JSON.parse(localStorage.getItem('user_data'))?.photo ? JSON.parse(localStorage.getItem('user_data'))?.photo : SampleUser} alt="" />
 
-    <div className="font-medium dark:text-white text-3xl mt-12 text-center">
+
+    <div className="font-medium dark:text-white text-xl md:text-3xl mt-12 text-center ">
         <div>{JSON.parse(localStorage.getItem('user_data'))?.name}</div>
-        <div className="text-sm text-gray-500 dark:text-gray-400">Joined in August 2014</div>
+        <div className="text-sm text-center text-gray-500 dark:text-gray-400 ">Joined in August 2014</div>
     </div>
 </div>
     </div>
-    <div className="profile_body  mb-10px px-10 py-2 border-2 rounded-md shadow-md m-auto mr-[10rem] mt-8 w-[45rem]">
+    <div className="profile_body  mb-10px px-10 py-2 border-2 rounded-md shadow-md m-auto md:mr-[10rem] mt-8 md:w-[45rem] w-11/12">
     <div className="profile_header">
-    <h1 className='text-3xl'>Profile Settings</h1>
+    <h1 className='md:text-3xl text-2xl text-center'>Profile Settings</h1>
     </div>
     <div className='mb-5'>
 <form className='mt-8'>
