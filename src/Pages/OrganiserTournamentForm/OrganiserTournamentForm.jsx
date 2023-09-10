@@ -114,7 +114,7 @@ if(url){
   return (
     <>
     <Navbar/>
-    <div className='OrganiserTournamentForm bg-white m-auto w-1/2 mt-8 mb-24'>
+    <div className='OrganiserTournamentForm bg-white m-auto w-9/12 md:w-1/2 mt-8 mb-24'>
     <form onSubmit={(e)=>{
       e.preventDefault(); 
       setIsLoading(true)
@@ -122,7 +122,7 @@ if(url){
     }}>
       <div className="space-y-12">
         <div >
-          <h2 className="text-3xl font-bold leading-tight text-black sm:text-4xl">Create your own Tournamnet</h2>
+          <h2 className="text-xl md:text-3xl font-bold leading-tight text-black sm:text-4xl">Create your own Tournamnet</h2>
           {/* <p className="mt-1 text-sm leading-6 text-gray-600">
             This information will be displayed publicly so be careful what you share.
           </p> */}
@@ -189,8 +189,8 @@ if(url){
               <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
                 <div className="text-center">
         {/*<PhotoIcon className="mx-auto h-12 w-12 text-gray-300" aria-hidden="true" id='output'/>*/}
-                  <img src={UploadIcon} alt="no preview" id='output' height={250} className='m-auto w-28'/>
-                  <div className="mt-4 flex text-sm leading-6 text-gray-600">
+                  <img src={UploadIcon} alt="no preview" id='output' height={250} className='m-auto w-16 md:w-28'/>
+                  <div className="mt-4 md:flex text-sm leading-6 text-gray-600">
                     <label
                       htmlFor="file-upload"
                       className="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
@@ -231,23 +231,23 @@ if(url){
 
         <div>
           <div className="mt-10 grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-6">
-            <div className="sm:col-span-3">
+            <div className=" col-span-full sm:col-span-3">
               <label htmlFor="startDate" className="block text-base font-medium text-gray-900">
               Start Date
               </label>
-              <div className="mt-2">
+              <div className=" mt-2">
                 <input
                   type="date"
                   name="startDate"
                   id="startDate"
                   value={startDateTime} 
                   onChange={(e) => setStartDateTime(e.target.value)}
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block  w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
 
-            <div className="sm:col-span-3">
+            <div className="col-span-full sm:col-span-3">
               <label htmlFor="endDate" className="block text-base font-medium text-gray-900">
               End Date
               </label>
