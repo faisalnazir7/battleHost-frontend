@@ -29,7 +29,7 @@ export default function ParticipantData() {
   },[])
   return (
     <>
-      <section className="mx-auto w-3/4 max-w-7xl px-4 py-4  ml-12 mt-12">
+      <section className="mx-auto w-3/4 max-w-7xl px-4 py-4  md:ml-12 md:mt-12 mt-20 -ml-56">
         <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
           <div>
             <h2 className="text-lg font-semibold">Participants</h2>
