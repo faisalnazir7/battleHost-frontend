@@ -9,7 +9,7 @@ export default function ManageResult() {
             <Navbar />
             <div className='ManageResult flex'>
                 <SideNav />
-                <div className="ml-12 mt-14">
+                <div className="md:ml-12 md:mt-14 mt-20 -ml-56">
                 <div className="ManageResultContent border-b">
                 <h2 className="text-xl font-semibold">Results</h2>
                 </div>

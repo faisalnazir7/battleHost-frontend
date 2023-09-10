@@ -19,9 +19,9 @@ export default function HostDashboard() {
   return (
     <>
     <Navbar/>
-     <div className='HostDashboard mt-12 ml-8'>
-     <h1 className='text-3xl font-extrabold ml-12'>My Tournaments</h1>
-     <div className='flex flex-wrap'>
+     <div className='HostDashboard mt-12'>
+     <h1 className='text-3xl font-extrabold ml-4 md:ml-16'>My Tournaments</h1>
+     <div className='flex flex-wrap justify-center md:justify-none'>
      {tournaments?.filter(filt=>filt.organizerId._id===JSON.parse(localStorage.getItem('user_data'))?._id)?.map(tournament=>(
       <Link to={`/hostdashboard/manage/${tournament._id}`}>
       <TournamentsCard key={tournament._id} tournament={tournament} buttonContent={'Manage'}/>
