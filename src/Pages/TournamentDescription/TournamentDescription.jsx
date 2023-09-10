@@ -19,7 +19,7 @@ navigator('/signin')
 else{
 tournamentDetails()
 }
-  },[])
+  },[tournamentId])
  
   
   return (
