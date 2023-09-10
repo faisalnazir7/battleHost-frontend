@@ -35,7 +35,7 @@ export default function Dropdown() {
     <Menu as="div" className="relative inline-block text-left ml-auto">
       <div>
         <Menu.Button className="inline-flex w-full justify-center gap-x-1.5 rounded-md  px-3 py-2 text-sm font-semibold mt-4">
-       <div className="ml-2 -mt-2 hidden lg:block">
+       <div className="-ml-10 -mt-2 lg:block">
           <span className="relative inline-block">
             <img
               className="h-10 w-10 rounded-full"
