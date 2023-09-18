@@ -21,7 +21,6 @@ const Profile = () => {
 
     <div className="font-medium dark:text-white text-xl md:text-3xl mt-12 text-center ">
         <div>{JSON.parse(localStorage.getItem('user_data'))?.name}</div>
-        <div className="text-sm text-center text-gray-500 dark:text-gray-400 ">Joined in August 2014</div>
     </div>
 </div>
     </div>
