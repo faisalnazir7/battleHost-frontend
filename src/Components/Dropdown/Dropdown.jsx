@@ -69,7 +69,7 @@ export default function Dropdown() {
                     'block px-4 py-2 text-sm'
                   )}
                 >
-                  My Dashboard
+                  Dashboard
                 </Link>
               )}
             </Menu.Item>

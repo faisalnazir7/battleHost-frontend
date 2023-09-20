@@ -42,12 +42,12 @@ export default function LandinngPageOne() {
             </p>
             
               <div>
-                <Link to="/signup">
+                <Link to="/dashboard">
                 <button
                   type="button"
-                  className="rounded-xl bg-black mt-8 px-12 py-4 text-sm font-semibold text-red-400 shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                  className="rounded-xl bg-black mt-8 px-12 py-4 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                 >
-                  Register Now!
+                  Explore !
                 </button>
                 </Link>
               </div>
