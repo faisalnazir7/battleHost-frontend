@@ -46,7 +46,7 @@ export default function Navbar() {
               }}
             />
             {search && (
-              <div className="fixed w-[250px] mt-2 z-30 border-solid border-2 rounded-xl shadow-md p-4 bg-white">
+              <div className="fixed w-[250px] mt-12 z-30 border-solid border-2 rounded-xl shadow-md p-4 bg-white">
                 {searchData(search).length > 0 ? (
                   searchData(search)?.map((result) => (
                     <div
