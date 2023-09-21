@@ -21,8 +21,6 @@ function App() {
 
   return (
     <>
-     {/* <Flowbite> */}
-     {/* <DarkThemeToggle /> */}
      <Routes>
         <Route exact path="/" element={<Home/>}></Route>
         <Route exact path="/signin" element={<SignIn/>}></Route>
@@ -41,8 +39,6 @@ function App() {
         <Route exact path="/hostdashboard/manage/:tournamentId/update" element={<TournamentManageUpdate/>}></Route>
         <Route exact path="/hostdashboard/manage/:tournamentId/result" element={<ManageResult/>}></Route>
      </Routes>
-      
-      {/* </Flowbite> */}
     </>
   )
 }
