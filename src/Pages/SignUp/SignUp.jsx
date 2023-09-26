@@ -28,7 +28,9 @@ export default function SignUp() {
     })
     const data=await response.json();
     if(!data.message){
-      navigator('/signin')
+      localStorage.setItem('user_data', JSON.stringify(data));
+      navigator("/");
+      document.cookie = `token=${data.token}; path=/;`;
     }else{
       setError(data.message)
     }
