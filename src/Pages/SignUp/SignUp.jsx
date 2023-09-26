@@ -28,7 +28,9 @@ export default function SignUp() {
     })
     const data=await response.json();
     if(!data.message){
-      navigator('/signin')
+      localStorage.setItem('user_data', JSON.stringify(data));
+      navigator("/");
+      document.cookie = `token=${data.token}; path=/;`;
     }else{
       setError(data.message)
     }
@@ -38,7 +40,7 @@ export default function SignUp() {
     <section>
       <div className="grid grid-cols-1 lg:grid-cols-2">
         <div className="flex items-center justify-center px-4 py-10 sm:px-6 sm:py-16 lg:px-8 lg:py-24">
-          <div className="h-full w-full">
+          <div className="h-full w-full sm:w-1/3">
           <Lottie
             animationData={Animation}
             loop={true}
