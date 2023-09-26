@@ -18,6 +18,7 @@ export default function SignUp() {
       headers:{
         'Content-Type':'application/json'
       },
+      credentials:'include',
       body:JSON.stringify({
         name:userName,
         email:email,
@@ -27,9 +28,7 @@ export default function SignUp() {
     })
     const data=await response.json();
     if(!data.message){
-      localStorage.setItem('user_data',JSON.stringify(data))
-      localStorage.setItem('web_token',JSON.stringify(data.token))
-      navigator('/')
+      navigator('/signin')
     }else{
       setError(data.message)
     }
