@@ -1,17 +1,22 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import dateFormatter from '../../util/dateFormatter'
 import Live from '../../assets/live.png'
 import Expired from '../../assets/expired.png'
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 export default function TournamentsCard({tournament,buttonContent}) {
+  const [loading,setLoading]=useState(true)
 const endDate=new Date(tournament.endDateTime)
   return (
+    
     <div className="w-80 rounded-2xl border  md:ml-12 mt-12">
-      <img
+     <img
         src={tournament?.bannerImg?tournament.bannerImg:"https://secure-content.meetupstatic.com/images/classic-events/514351843/676x380.jpg"}
         alt="Laptop"
         className="h-[200px] w-full rounded-t-md object-cover"
       />
-      <div className="p-4">
+    
+        <div className="p-4">
         <h1 className=" text-center text-lg font-semibold">
         {tournament?.name} 
         </h1>
@@ -64,6 +69,8 @@ const endDate=new Date(tournament.endDateTime)
         </button>
    
       </div>
+   
     </div>
+
   )
 }
