@@ -1,5 +1,6 @@
 import { MapPin } from "lucide-react";
 import React, { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 import { Link, useNavigate, useParams } from "react-router-dom";
 
 export default function UpdateCard({tournament}) {
@@ -30,7 +31,7 @@ export default function UpdateCard({tournament}) {
       credentials:"include"
     })
     const data=await response.json()
-    // console.log(data)
+    toast.success("Tournament Data Updated!")
   }
   const mongoDBDateConverter=(mongoDBDate)=>{
     const date = new Date(mongoDBDate);

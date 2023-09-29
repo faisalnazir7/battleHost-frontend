@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import dateFormatter from '../../util/dateFormatter'
 import { Link } from 'react-router-dom'
+import toast from 'react-hot-toast'
 export default function ManageCard() {
   const {tournamentId}=useParams()
   const [tournamentData,setTournamentData]=useState([])
@@ -76,6 +77,7 @@ const navigator=useNavigate()
         if(window.confirm('Do you really want to delete the tournament?')){
         await deleteTournament()
       navigator('/hostdashboard')
+      toast("Tournament Deleted Successfully!!",{icon:'🗑️'})
         }
       }}
         className="rounded-md bg-red-700 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black">

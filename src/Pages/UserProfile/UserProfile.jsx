@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState } from "react";
 import Navbar from "../../Components/Navbar/Navbar";
 import SampleUser from "../../assets/sampleuser.png";
 import { useNavigate } from "react-router-dom";
+import { Toaster,toast } from "react-hot-toast";
 function UserProfile() {
   const image = useRef();
   const navigator = useNavigate();
@@ -37,7 +38,9 @@ function UserProfile() {
     if(!data.message){
     localStorage.setItem('user_data',JSON.stringify(data))
     navigator('/profile')
+    toast.success("Profile Updated Successfully")
     }
+   
   }
   const loadFile = (e) => {
     let output = document.getElementById("output");

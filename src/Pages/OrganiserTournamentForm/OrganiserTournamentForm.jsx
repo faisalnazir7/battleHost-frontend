@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import UploadIcon from "../../assets/uploadicon.jpg"
 import { Waveform } from '@uiball/loaders'
 import Category from './Category';
-
+import {Toaster,toast} from 'react-hot-toast'
 export default function OrganiserTournamentForm() {
   const categories=[
     "Tournament", "Hackathon", "Event"
@@ -46,7 +46,7 @@ export default function OrganiserTournamentForm() {
       .then((res) => res.json())
       .then((data) => {
         setUrl(data.url);
-        console.log(data.url);
+        setIsLoading(false)
       })
       .catch((err) => console.log(err));
   };
@@ -86,8 +86,14 @@ export default function OrganiserTournamentForm() {
         });
 
         const data = await response.json();
+        if(data.stack!==null){
+       toast.success(data.message)
         navigator("/dashboard")
-        console.log(data);
+        }
+        else{
+          toast.error(data.message)
+        }
+        console.log(data)
         setIsLoading(false)
         
     } catch (error) {
@@ -113,6 +119,10 @@ if(url){
     
   return (
     <>
+    <div><Toaster
+    position="top-center"
+    reverseOrder={false}
+    /></div>
     <Navbar/>
     <div className='OrganiserTournamentForm bg-white m-auto w-9/12 md:w-1/2 mt-8 mb-24'>
     <form onSubmit={(e)=>{
