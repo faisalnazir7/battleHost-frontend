@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Animation from '../../assets/animation3.json'
 import Lottie from 'lottie-react';
 import Logo from "../../../public/bH-black.png";
+import toast from 'react-hot-toast';
 
 export default function SignUp() {
   const [userName, setUserName] = useState("");
@@ -31,6 +32,7 @@ export default function SignUp() {
       localStorage.setItem('user_data', JSON.stringify(data));
       navigator("/");
       document.cookie = `token=${data.token}; path=/;`;
+      toast.success("User registered successfully!")
     }else{
       setError(data.message)
     }

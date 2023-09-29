@@ -93,6 +93,7 @@
 import React, { useState } from 'react'
 import img from '../../assets/result.jpg'
 import { useParams } from 'react-router-dom'
+import toast from 'react-hot-toast'
 
 export default function ResultManageCard() {
     const {tournamentId}=useParams()
@@ -113,6 +114,12 @@ export default function ResultManageCard() {
       credentials:'include'
     })
     const data=await response.json()
+   if(data.stack!==null){
+    toast.success(data.message)
+   }
+   else{
+    toast.error(data.message)
+   }
   }
   return (
     <div className="flex w-4xl h-4xl flex-col items-center w-80 md:w-[50rem] rounded-md border md:flex-row  mt-6 md:ml-8">
