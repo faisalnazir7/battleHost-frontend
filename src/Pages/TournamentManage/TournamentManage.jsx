@@ -18,11 +18,8 @@ export default function TournamentManage() {
             <p className="mt-1 text-sm text-gray-700 mb-4">
               You can edit or delete existing tournamnets.
             </p>
-
           </div>
-
           <div >
-            
             <ManageCard/>
           </div>
         </div>

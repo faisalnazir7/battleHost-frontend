@@ -19,7 +19,7 @@ export default function Dropdown() {
         if (response.ok) {
             // Logout was successful, handle UI changes or redirects here
             // console.log('Logged out successfully');
-            console.log(data.message)
+            // console.log(data.message)
             // Clear the cookies on the client side
             document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
             localStorage.clear()
@@ -27,7 +27,7 @@ export default function Dropdown() {
             toast.success("Logged out successfully!")
         } else {
             // Handle error response
-            console.error('Logout failed');
+            // console.error('Logout failed');
             toast.error("Could not logout!")
 
         }

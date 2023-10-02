@@ -27,7 +27,7 @@ export default function Result() {
         }
         else{
         setResultData(data)
-        console.log("Result:",data)
+        // console.log("Result:",data)
         }
     }
     useEffect(()=>{
