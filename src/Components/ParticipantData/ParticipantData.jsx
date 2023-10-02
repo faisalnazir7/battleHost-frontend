@@ -19,7 +19,7 @@ export default function ParticipantData() {
   const tournamentDetails=async()=>{
       const response=await fetch(`${import.meta.env.VITE_SERVER_URL}/api/tournament/${tournamentId}`)
       const data=await response.json()
-      console.log(data.getTournamentDetails[0])
+      // console.log(data.getTournamentDetails[0])
       // setTournamentData(data.getTournamentDetails[0])
       setData(data.getTournamentDetails[0].participants)
       

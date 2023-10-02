@@ -1,6 +1,4 @@
 import { motion } from "framer-motion";
-
-
 const TextAnimation = () => {
   const text = "Flaunt Your Talent!";
   return (

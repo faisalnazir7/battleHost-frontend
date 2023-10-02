@@ -12,7 +12,7 @@ export default function Navbar() {
       `${import.meta.env.VITE_SERVER_URL}/api/tournament/alltournaments`
     );
     const data = await response.json();
-    console.log(data);
+    // console.log(data);
     setTournaments(data.allTournaments);
   };
   const searchData = (search) => {

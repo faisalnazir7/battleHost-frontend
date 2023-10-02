@@ -93,12 +93,12 @@ export default function OrganiserTournamentForm() {
         else{
           toast.error(data.message)
         }
-        console.log(data)
+        // console.log(data)
         setIsLoading(false)
         
     } catch (error) {
 
-        console.error(error);
+        // console.error(error);
         setIsLoading(false)
 
     }

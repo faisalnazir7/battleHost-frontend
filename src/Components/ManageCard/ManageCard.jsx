@@ -22,7 +22,7 @@ const navigator=useNavigate()
       credentials:'include'
     })
     const data=await response.json()
-    console.log('Deleted:',data)
+    // console.log('Deleted:',data)
   }
   useEffect(()=>{
 

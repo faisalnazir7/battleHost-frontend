@@ -12,7 +12,7 @@ export default function TournamentManageUpdate() {
       `${import.meta.env.VITE_SERVER_URL}/api/tournament/${tournamentId}`
     );
     const data = await response.json();
-    console.log(data.getTournamentDetails[0]);
+    // console.log(data.getTournamentDetails[0]);
     setTournamentData(await data.getTournamentDetails[0]);
    
   };
