@@ -2,6 +2,7 @@ import { Fragment } from 'react'
 import { Menu, Transition } from '@headlessui/react'
 import { Link, useNavigate } from 'react-router-dom'
 import userProfilePic from '../../assets/sampleuser.png'
+import toast from 'react-hot-toast'
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
@@ -23,9 +24,12 @@ export default function Dropdown() {
             document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
             localStorage.clear()
             navigator('/signin')
+            toast.success("Logged out successfully!")
         } else {
             // Handle error response
             console.error('Logout failed');
+            toast.error("Could not logout!")
+
         }
     } catch (error) {
         console.error('Error during logout:', error);
@@ -69,7 +73,7 @@ export default function Dropdown() {
                     'block px-4 py-2 text-sm'
                   )}
                 >
-                  My Dashboard
+                  Dashboard
                 </Link>
               )}
             </Menu.Item>

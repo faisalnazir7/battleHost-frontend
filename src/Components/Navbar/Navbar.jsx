@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Menu } from "lucide-react";
 import Dropdown from "../Dropdown/Dropdown";
 import { Link, useNavigate } from "react-router-dom";
 import Logo from "../../../public/bH-black.png";
@@ -36,7 +35,7 @@ export default function Navbar() {
               <img src={Logo} alt="logo" className="h-12" />
             </Link>
           </div>
-          <div className="flex-grow ml-6 mr-10 md:w-[250px]">
+          <div className="flex ml-6 mr-10 md:w-[250px]">
             <input
               className="w-full h-10 rounded-full bg-gray-100 px-3 py-2 text-sm placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-black focus:ring-opacity-30 disabled:opacity-50"
               type="text"
@@ -47,7 +46,7 @@ export default function Navbar() {
               }}
             />
             {search && (
-              <div className="fixed w-[250px] mt-2 z-30 border-solid border-2 rounded-xl shadow-md p-4 bg-white">
+              <div className="fixed w-[250px] mt-12 z-30 border-solid border-2 rounded-xl shadow-md p-4 bg-white">
                 {searchData(search).length > 0 ? (
                   searchData(search)?.map((result) => (
                     <div
@@ -93,9 +92,6 @@ export default function Navbar() {
               </p>
             </div>
           </div>
-          {/* <div className="md:hidden flex items-center">
-            <Menu className="h-6 w-6 cursor-pointer" />
-          </div> */}
         </div>
       </div>
     </div>

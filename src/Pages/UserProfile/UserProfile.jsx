@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState } from "react";
 import Navbar from "../../Components/Navbar/Navbar";
 import SampleUser from "../../assets/sampleuser.png";
 import { useNavigate } from "react-router-dom";
+import { Toaster,toast } from "react-hot-toast";
 function UserProfile() {
   const image = useRef();
   const navigator = useNavigate();
@@ -21,7 +22,7 @@ function UserProfile() {
   const [isChanged,setIsChanged]=useState(false)
   const [url,setUrl]=useState("")
   const updateUser=async()=>{
-    const response=await fetch('http://localhost:5000/api/users/updateuser',{
+    const response=await fetch(`${import.meta.env.VITE_SERVER_URL}/api/users/updateuser`,{
         method:'PATCH',
         headers:{
           'Content-Type':'application/json'
@@ -34,9 +35,12 @@ function UserProfile() {
     credentials:'include'
     })
     const data=await response.json()
-    
+    if(!data.message){
     localStorage.setItem('user_data',JSON.stringify(data))
     navigator('/profile')
+    toast.success("Profile Updated Successfully")
+    }
+   
   }
   const loadFile = (e) => {
     let output = document.getElementById("output");
@@ -93,9 +97,6 @@ if(url){
 
             <div className="font-medium dark:text-white text-xl md:text-3xl mt-12 text-center">
               <div>{JSON.parse(localStorage.getItem("user_data"))?.name}</div>
-              <div className="text-sm text-center text-gray-500 dark:text-gray-400 ">
-                Joined in August 2014
-              </div>
             </div>
           </div>
         </div>

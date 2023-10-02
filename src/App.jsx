@@ -16,13 +16,13 @@ import TournamentManage from './Pages/TournamentManage/TournamentManage';
 import ParticipantsManage from './Pages/ParticipantsManage/ParticipantsManage';
 import TournamentManageUpdate from './Pages/TournamentManageUpdate/TournamentManageUpdate';
 import ManageResult from './Pages/ManageResult/ManageResult';
+import ToasterContainer from './Components/Toaster/ToasterContainer';
 
 function App() {
 
   return (
     <>
-     {/* <Flowbite> */}
-     {/* <DarkThemeToggle /> */}
+    <ToasterContainer/>
      <Routes>
         <Route exact path="/" element={<Home/>}></Route>
         <Route exact path="/signin" element={<SignIn/>}></Route>
@@ -41,8 +41,6 @@ function App() {
         <Route exact path="/hostdashboard/manage/:tournamentId/update" element={<TournamentManageUpdate/>}></Route>
         <Route exact path="/hostdashboard/manage/:tournamentId/result" element={<ManageResult/>}></Route>
      </Routes>
-      
-      {/* </Flowbite> */}
     </>
   )
 }
