@@ -36,8 +36,8 @@ export default function SignUp() {
 
   };
   return (
-    <section className='mt-16'>
-      <div className="flex items-center space-x-2 mb-3 ml-3 ">
+    <section className='mt-8'>
+      <div className="flex items-center ml-3">
             <Link to="/">
               <img src={Logo} alt="logo" className="h-12" />
             </Link>
@@ -49,7 +49,7 @@ export default function SignUp() {
             animationData={Animation}
             loop={true}
             autoplay
-            style={{width:'100%',height:'100%',marginLeft:'auto',marginRight:'7rem'}}
+            style={{width:'100%',height:'80%',marginLeft:'auto',marginRight:'7rem'}}
           />
           </div>
           

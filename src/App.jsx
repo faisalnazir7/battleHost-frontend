@@ -40,8 +40,7 @@ function App() {
         <Route exact path="/hostdashboard/manage/:tournamentId/participants" element={<ParticipantsManage/>}></Route>
         <Route exact path="/hostdashboard/manage/:tournamentId/update" element={<TournamentManageUpdate/>}></Route>
         <Route exact path="/hostdashboard/manage/:tournamentId/result" element={<ManageResult/>}></Route>
-     </Routes>
-      
+      </Routes>
       {/* </Flowbite> */}
     </>
   )
