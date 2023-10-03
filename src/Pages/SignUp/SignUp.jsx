@@ -4,7 +4,6 @@ import { Link, useNavigate } from "react-router-dom";
 import Animation from '../../assets/animation3.json'
 import Lottie from 'lottie-react';
 import Logo from "../../../public/bH-black.png";
-import toast from 'react-hot-toast';
 
 export default function SignUp() {
   const [userName, setUserName] = useState("");
@@ -19,7 +18,6 @@ export default function SignUp() {
       headers:{
         'Content-Type':'application/json'
       },
-      credentials:'include',
       body:JSON.stringify({
         name:userName,
         email:email,
@@ -29,36 +27,35 @@ export default function SignUp() {
     })
     const data=await response.json();
     if(!data.message){
-      localStorage.setItem('user_data', JSON.stringify(data));
-      navigator("/");
-      document.cookie = `token=${data.token}; path=/;`;
-      toast.success("User registered successfully!")
+      localStorage.setItem('user_data',JSON.stringify(data))
+      localStorage.setItem('web_token',JSON.stringify(data.token))
+      navigator('/')
     }else{
       setError(data.message)
     }
 
   };
   return (
-    <section>
+    <section className='mt-8'>
+      <div className="flex items-center ml-3">
+            <Link to="/">
+              <img src={Logo} alt="logo" className="h-12" />
+            </Link>
+          </div>
       <div className="grid grid-cols-1 lg:grid-cols-2">
-        <div className="flex items-center justify-center px-4 py-10 sm:px-6 sm:py-16 lg:px-8 lg:py-24">
-          <div className="h-full w-full">
+        <div className="relative flex items-end px-4 pb-10 pt-60 sm:px-6 sm:pb-16 md:justify-center lg:px-8 lg:pb-24">
+          <div className="absolute inset-0">
           <Lottie
             animationData={Animation}
             loop={true}
             autoplay
-            style={{width:'100%',height:'100%',marginLeft:'auto',marginRight:'7rem'}}
+            style={{width:'100%',height:'80%',marginLeft:'auto',marginRight:'7rem'}}
           />
           </div>
           
         </div>
         <div className="flex items-center justify-center px-4 py-10 sm:px-6 sm:py-16 lg:px-8 lg:py-24">
           <div className="xl:mx-auto xl:w-full xl:max-w-sm 2xl:max-w-md">
-          <div className="flex items-center mb-3">
-            <Link to="/">
-              <img src={Logo} alt="logo" className="h-12" />
-            </Link>
-          </div>
             <h2 className="text-3xl font-bold leading-tight text-black sm:text-4xl">Sign up</h2>
             <p className="mt-2 text-base text-gray-600">
               Already have an account?{' '}
