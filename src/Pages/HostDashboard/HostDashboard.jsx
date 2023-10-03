@@ -27,7 +27,7 @@ export default function HostDashboard() {
      <div className='flex flex-wrap justify-center md:justify-none'>
      {loading && <SkeletalCardLayout/>}
      {tournaments?.filter(filt=>filt.organizerId._id===JSON.parse(localStorage.getItem('user_data'))?._id)?.map(tournament=>(
-      <Link to={`/hostdashboard/manage/${tournament._id}`}>
+      <Link to={`/hostdashboard/manage/${tournament._id}/general`}>
       <TournamentsCard key={tournament._id} tournament={tournament} buttonContent={'Manage'}/>
       </Link>
      ))
