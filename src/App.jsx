@@ -36,7 +36,7 @@ function App() {
         <Route exact path="/tournaments/live" element={<LiveTournaments/>}></Route>   
         <Route exact path="/accessdenied" element={<AccessDenied/>}></Route>   
         <Route exact path="/hostdashboard" element={<HostDashboard/>}></Route>
-        <Route exact path="/hostdashboard/manage/:tournamentId" element={<TournamentManage/>}></Route>
+        <Route exact path="/hostdashboard/manage/:tournamentId/general" element={<TournamentManage/>}></Route>
         <Route exact path="/hostdashboard/manage/:tournamentId/participants" element={<ParticipantsManage/>}></Route>
         <Route exact path="/hostdashboard/manage/:tournamentId/update" element={<TournamentManageUpdate/>}></Route>
         <Route exact path="/hostdashboard/manage/:tournamentId/result" element={<ManageResult/>}></Route>
