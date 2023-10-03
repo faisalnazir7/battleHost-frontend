@@ -1,5 +1,4 @@
 import React from 'react'; 
-
 import { Swiper, SwiperSlide } from 'swiper/react'; 
 import { Carousel } from 'flowbite-react';
 import 'swiper/css'; 
@@ -9,8 +8,6 @@ import img1 from '../../assets/hackathon1.png';
 import img2 from '../../assets/tournaments_large.jpg';
 import './Carousel.css'; 
 import { Navigation } from 'swiper/modules'; 
-
- 
 export default function Carousel() { 
   return ( 
     <> 

@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import img from '../../assets/result.jpg'
 import { useParams } from 'react-router-dom'
+import toast from 'react-hot-toast'
 
 export default function ResultManageCard() {
-  const {tournamentId}=useParams()
+    const {tournamentId}=useParams()
   const [Winner,setWinner]=useState("")
   const [FirstRunnerUp,setFirstRunnerUp]=useState("")
   const [SecondRunnerUp,setSecondRunnerUp]=useState("")
@@ -21,21 +22,27 @@ export default function ResultManageCard() {
       credentials:'include'
     })
     const data=await response.json()
+   if(data.stack!==null){
+    toast.success(data.message)
+   }
+   else{
+    toast.error(data.message)
+   }
   }
   return (
-    <div className="flex w-4xl h-4xl flex-col w-[50rem] items-center rounded-md border md:flex-row mt-6 ml-8">
+    <div className="flex w-4xl h-4xl flex-col items-center w-80 md:w-[50rem] rounded-md border md:flex-row  mt-6 md:ml-8">
       <div className="h-full w-full ml-8 md:h-[427px] md:w-[400px]">
-        <img
+      <img
         src={img}
           alt=""
           id="output"
           className='h-[22rem] mt-8'
         />
       </div>
-    
+
       <div>
-        <div className="ml-12 w-[18rem]">
-            <label htmlFor="Winner">Winner</label>
+        <div className="md:ml-12 w-[18rem]">
+        <label htmlFor="Winner">Winner</label>
           <input
                     type="text"
                     id="name"
@@ -46,8 +53,8 @@ export default function ResultManageCard() {
                     onChange={(e)=>setWinner(e.target.value)}
                     
                   />
-                   <label htmlFor="RunnerUp1">1st Runner Up</label>
-           <input
+         <label htmlFor="RunnerUp1">1st Runner Up</label>
+                    <input
                     type="text"
                     id="description"
                     // value={name}
@@ -55,9 +62,9 @@ export default function ResultManageCard() {
                     placeholder="Enter email/team name for 1st runner up"
                     value={FirstRunnerUp}
                     onChange={(e)=>setFirstRunnerUp(e.target.value)}
-                  
                   />
-                   <label htmlFor="RunnerUp2">2nd Runner Up</label>
+        
+        <label htmlFor="RunnerUp2">2nd Runner Up</label>
            <input
                     type="text"
                     id="TournamentRules"
@@ -68,8 +75,7 @@ export default function ResultManageCard() {
                     onChange={(e)=>setSecondRunnerUp(e.target.value)}
                     
                   />
-         
-          <br />
+        <br />
           <div className='flex justify-end'>
            
           <button type="button"

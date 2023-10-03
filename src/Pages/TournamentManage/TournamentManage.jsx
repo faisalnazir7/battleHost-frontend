@@ -9,20 +9,17 @@ export default function TournamentManage() {
   return (
     <>
       <Navbar />
-      <div className='TournamentManage flex'>
+      <div className='TournamentManage md:flex'>
         <SideNav />
-        <div className="TournamentManageContent ml-12 mt-14">
+        <div className="TournamentManageContent mt-2 ml-1 md:ml-12 md:mt-14">
 
           <div className='HeadingTournament border-b'>
-            <h2 className="text-xl font-semibold">Manage Your Tournaments</h2>
+            <h2 className="text-base md:text-xl font-semibold">Manage Your Tournaments</h2>
             <p className="mt-1 text-sm text-gray-700 mb-4">
               You can edit or delete existing tournamnets.
             </p>
-
           </div>
-
           <div >
-            
             <ManageCard/>
           </div>
         </div>

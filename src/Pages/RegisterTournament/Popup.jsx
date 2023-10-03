@@ -3,6 +3,7 @@ import { Dialog, Transition } from '@headlessui/react'
 import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
 import { Button, Checkbox, Label, TextInput } from 'flowbite-react';
 import { useParams } from 'react-router-dom';
+import toast from 'react-hot-toast';
 export default function Popup({open,setOpen}) {
   const {tournamentId}=useParams()
 const [Individual,setIndividual]=useState(true);
@@ -34,7 +35,13 @@ const response=await fetch(`${import.meta.env.VITE_SERVER_URL}/api/tournament/re
     })
     const data=await response.json()
     
-    console.log(data)
+    if(data.stack!==null){
+      toast.success(data.message)
+    }
+    else{
+      toast.error(data.message)
+    }
+    setOpen(false)
   }
   catch(err){
     console.log(err)

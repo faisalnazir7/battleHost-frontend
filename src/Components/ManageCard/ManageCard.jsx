@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import dateFormatter from '../../util/dateFormatter'
 import { Link } from 'react-router-dom'
+import toast from 'react-hot-toast'
 export default function ManageCard() {
   const {tournamentId}=useParams()
   const [tournamentData,setTournamentData]=useState([])
@@ -21,16 +22,15 @@ const navigator=useNavigate()
       credentials:'include'
     })
     const data=await response.json()
-    console.log('Deleted:',data)
+    // console.log('Deleted:',data)
   }
   useEffect(()=>{
 
    getTournamentData()
       },[])
   return (
-    <div className="flex w-4xl h-4xl flex-col items-center rounded-md border md:flex-row mt-20 ml-36
-    ">
-      <div className="h-full w-full ml-8 md:h-[200px] md:w-[300px]">
+    <div className="flex w-4xl h-4xl flex-col items-center rounded-md border md:flex-row mt-2 md:mt-20 md:ml-36 ">
+      <div className="h-full w-full md:ml-8 md:h-[200px] md:w-[300px]">
         <img
         src={tournamentData?.bannerImg}
           alt="no preview"
@@ -50,7 +50,7 @@ const navigator=useNavigate()
             Tournament Rules
           </p>
           <div className='flex'>
-          <div className="mt-4">
+          <div className="mt-4 -mr-24 md:mr-0">
           <p className="mt-3 text-sm text-gray-600">
             Start Date: {dateFormatter(tournamentData?.startDateTime,0)}
           </p>
@@ -77,6 +77,7 @@ const navigator=useNavigate()
         if(window.confirm('Do you really want to delete the tournament?')){
         await deleteTournament()
       navigator('/hostdashboard')
+      toast("Tournament Deleted Successfully!!",{icon:'🗑️'})
         }
       }}
         className="rounded-md bg-red-700 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black">
