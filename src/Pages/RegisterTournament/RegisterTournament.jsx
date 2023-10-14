@@ -15,22 +15,23 @@ function RegisterTournament({tournament}) {
       <Navbar />
       <div className="RegisterTournament">
         <div className="tournament p-5">
-          <img
-            src={tournament?.bannerImg?
-              tournament?.bannerImg
-              :
-              "https://d8it4huxumps7.cloudfront.net/uploads/images/6481ae7a08a26_flipkart-grid-50-software-development-track.png?d=1280x371"
+        <img
+        src={tournament?.bannerImg ?
+            tournament?.bannerImg :
+            "https://d8it4huxumps7.cloudfront.net/uploads/images/6481ae7a08a26_flipkart-grid-50-software-development-track.png?d=1280x371"
             }
-            alt="no preview"
-            className="w-full mrounded-lg"
-          />
+        alt="no preview"
+        className="w-full rounded-2xl ml-36"
+        style={{ maxHeight: '30rem' , maxWidth:'80%'}}
+        />
+
           <div className="tournament_header md:flex mt-4 block text-center">
-            <h1 className=" mt-8 ml-8 font-bold text-4xl m-auto mb-6 md:mb-0">{tournament?.name}</h1>
+            <h1 className=" mt-8 ml-16 font-bold text-4xl m-auto mb-6 md:mb-0">{tournament?.name}</h1>
             
 
             {JSON.parse(localStorage.getItem('user_data'))?.role==='participant' && tournament?.endDateTime&& Date.now()<=new Date(tournament.endDateTime)?
             <button
-              className="rounded-xl mt-2 md:mr-4 bg-black md:ml-auto  p-5 md:text-xl text-lg tracking-wide font-semibold text-red-400 shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black hover:text-red-500"
+              className="rounded-xl mt-2 md:mr-16 bg-black md:ml-auto  p-5 md:text-xl text-lg tracking-wide font-semibold text-red-400 shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black hover:text-red-500"
               
               onClick={() => setOpen(true)}
             >
@@ -41,7 +42,7 @@ function RegisterTournament({tournament}) {
             }
             
           </div>
-          <div className="md:shadow-2xl shadow-xl md:w-80 md:h-80 w-full h-full mt-8 border-2 rounded-xl pl-4 pt-1 ml-auto ">
+          <div className="md:shadow-2xl shadow-xl md:w-80 md:h-80 w-full h-full mt-8 border-2 rounded-xl pl-4 pt-1 ml-auto mr-12">
             <h2 className="font-bold text-2xl mt-6 text-center text-green-500">Application Date</h2>
             <p className="font-bold flex text-lg mt-8 ">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
