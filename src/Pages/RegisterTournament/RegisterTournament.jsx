@@ -18,7 +18,8 @@ function RegisterTournament({tournament}) {
           <img
             src={tournament?.bannerImg}
             alt="no preview"
-            className="w-full mrounded-lg"
+            className="w-full rounded-2xl ml-36"
+            style={{ maxHeight: '30rem' , maxWidth:'80%'}}
           />
           <div className="tournament_header md:flex mt-4 block text-center">
             <h1 className=" mt-8 ml-16 font-bold text-4xl m-auto mb-6 md:mb-0">{tournament?.name}</h1>
