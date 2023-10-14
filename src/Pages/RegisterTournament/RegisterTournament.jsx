@@ -16,11 +16,7 @@ function RegisterTournament({tournament}) {
       <div className="RegisterTournament">
         <div className="tournament p-5">
           <img
-            src={tournament?.bannerImg?
-              tournament?.bannerImg
-              :
-              "https://d8it4huxumps7.cloudfront.net/uploads/images/6481ae7a08a26_flipkart-grid-50-software-development-track.png?d=1280x371"
-            }
+            src={tournament?.bannerImg}
             alt="no preview"
             className="w-full mrounded-lg"
           />
