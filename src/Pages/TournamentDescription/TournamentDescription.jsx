@@ -30,7 +30,7 @@ tournamentDetails()
  {loading &&
 <TournamentDescriptionSkeletal/>
  }
-    <RegisterTournament tournament={tournamentData}/>
+    {!loading && <RegisterTournament tournament={tournamentData}/>}
    
     </div>
   )

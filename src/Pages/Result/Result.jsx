@@ -6,6 +6,7 @@ import bronze from '../../assets/bronze trophy.png'
 import {useWindowSize} from 'react-use';
 import Confetti from 'react-confetti'
 import { useNavigate, useParams } from 'react-router-dom'
+import SkeletalResult from './SkeletalResult'
 
 export default function Result() {
     const {tournamentId}=useParams()
@@ -13,6 +14,7 @@ export default function Result() {
     const navigator=useNavigate()
     const [resultData,setResultData]=useState()
     const [message,setMessage]=useState("")
+    const [loading,setLoading]=useState(true);
     const getResuts=async()=>{
         const response=await fetch(`${import.meta.env.VITE_SERVER_URL}/api/tournament/${tournamentId}/displayresults`,{
             method:'GET',
@@ -29,6 +31,7 @@ export default function Result() {
         setResultData(data)
         // console.log("Result:",data)
         }
+        setLoading(false)
     }
     useEffect(()=>{
         if(!document.cookie.split('=')[1]){
@@ -40,16 +43,18 @@ export default function Result() {
   return (
     <>
     <Navbar/>
-    
-  {!message &&  <Confetti
+    {loading && <SkeletalResult/>}
+  {!message && !loading &&  <Confetti
       width={width}
       height={height}
       recycle={false}
       numberOfPieces={500}
     />}
-   {message?
+   {!loading &&
+    message &&
     <p className='text-center text-3xl'>{message}</p>
-    :
+   }
+   {!loading && !message &&
      <div className="Result block md:flex m-auto w-1/2 ">
 
     <div className="second mt-40 relative bottom-[-13rem] md:static">

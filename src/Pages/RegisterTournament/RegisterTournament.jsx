@@ -15,16 +15,12 @@ function RegisterTournament({tournament}) {
       <Navbar />
       <div className="RegisterTournament">
         <div className="tournament p-5">
-        <img
-        src={tournament?.bannerImg ?
-            tournament?.bannerImg :
-            "https://d8it4huxumps7.cloudfront.net/uploads/images/6481ae7a08a26_flipkart-grid-50-software-development-track.png?d=1280x371"
-            }
-        alt="no preview"
-        className="w-full rounded-2xl ml-36"
-        style={{ maxHeight: '30rem' , maxWidth:'80%'}}
-        />
-
+          <img
+            src={tournament?.bannerImg}
+            alt="no preview"
+            className="w-full rounded-2xl ml-36"
+            style={{ maxHeight: '30rem' , maxWidth:'80%'}}
+          />
           <div className="tournament_header md:flex mt-4 block text-center">
             <h1 className=" mt-8 ml-16 font-bold text-4xl m-auto mb-6 md:mb-0">{tournament?.name}</h1>
             
