@@ -22,12 +22,9 @@ export default function LandinngPageOne() {
     }, 2000);
   }, []);
 
-  return (
-    <>
-    <Navbar/>
-
+  return ( 
     <div className="w-full">
-      
+    <Navbar/>
       <div className="relative w-full bg-white">
         <div className="mx-auto max-w-7xl lg:grid lg:grid-cols-12 lg:gap-x-8 lg:px-8">
           <div className="flex flex-col px-4 py-12 md:py-16 lg:col-span-7 lg:gap-x-6 lg:px-6 lg:py-24 xl:col-span-6">
@@ -130,6 +127,5 @@ export default function LandinngPageOne() {
       <Footer/>
       
     </div>
-    </>
   )
 }
