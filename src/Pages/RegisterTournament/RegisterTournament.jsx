@@ -4,12 +4,18 @@ import Navbar from "../../Components/Navbar/Navbar";
 import Prizes from "./Prizes";
 import { useNavigate, useParams } from "react-router-dom";
 import dateFormatter from "../../util/dateFormatter";
-import { Clock } from 'lucide-react';
-
+import { Clock,Share } from 'lucide-react';
+import copy from 'copy-to-clipboard'
+import toast from "react-hot-toast";
 function RegisterTournament({tournament}) {
   const [open, setOpen] = React.useState(false);
   const navigator=useNavigate()
   const {tournamentId}=useParams()
+  const copyTextToClipboard = () => {
+   copy(window.location.href)
+   toast.success('Link copied to clipboard!')
+  };
+  
   return (
     <>
       <Navbar />
@@ -40,7 +46,12 @@ function RegisterTournament({tournament}) {
             :
             <p></p>
             }
-            
+            <button
+            className="rounded-xl mt-2 md:mr-16 bg-black  p-5 md:text-xl text-lg tracking-wide font-semibold text-red-400 shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black hover:text-red-500"
+            onClick={()=>copyTextToClipboard()}
+            >
+          <Share />
+          </button>
           </div>
           <div className="md:shadow-2xl shadow-xl md:w-3/12 md:h-80 w-full h-full mt-8 border-2 rounded-xl pl-4 pt-1 ml-auto mr-12">
             <h2 className="font-bold text-2xl mt-6 text-center text-green-500">Application Date</h2>
