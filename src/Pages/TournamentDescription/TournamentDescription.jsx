@@ -16,12 +16,7 @@ function TournamentDescription() {
     setLoading(false)
   }
   useEffect(()=>{
-    if(!document.cookie.split('=')[1]){
-navigator('/signin')
-}
-else{
 tournamentDetails()
-}
   },[tournamentId])
  
   
