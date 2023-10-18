@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import { BarChart, Wallet, PenSquare , LogOut , Wrench,Hand } from 'lucide-react'
-import { Link,useNavigate } from 'react-router-dom'
+import { Link,useLocation,useNavigate } from 'react-router-dom'
+import sidebarExceptions from '../../util/sidebarExceptions';
 
 export function Sidebar() {
-  
+  const location=useLocation()
+  if(sidebarExceptions.includes(location.pathname)){
+    return null;
+  }
  const [isExpanded, setIsExpanded] = useState(false);
 
   const handleSidebarToggle = () => {
