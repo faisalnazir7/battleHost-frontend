@@ -5,9 +5,9 @@ export default function Layout({children}) {
     <>
     <div className="flex">
     <Sidebar/>
-    
-        {children}
-        
+    <div>
+    {children}
+    </div>
     </div>
     </>
     
