@@ -5,7 +5,7 @@ export default function Layout({children}) {
     <>
     <div className="flex">
     <Sidebar/>
-    <div>
+    <div className='ml-[5rem] w-full'>
     {children}
     </div>
     </div>
