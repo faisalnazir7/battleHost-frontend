@@ -44,7 +44,7 @@ export function Sidebar() {
     <>
      
     <aside 
-     className={`w-${isExpanded ? '64' : '20'} flex  flex-col overflow-y-auto border-r bg-black px-5 py-8 h-auto transition-width`}
+     className={`w-${isExpanded ? '64' : '20'} flex fixed h-screen z-10  flex-col overflow-y-auto border-r bg-black px-5 py-8 transition-width`}
         onMouseEnter={handleSidebarToggle}
         onMouseLeave={handleSidebarToggle}
     >

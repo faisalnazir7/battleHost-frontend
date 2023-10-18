@@ -18,7 +18,9 @@ function TournamentDescription() {
   useEffect(()=>{
 tournamentDetails()
   },[tournamentId])
- 
+ useEffect(()=>{
+window.scrollTo(0,0)
+ },[])
   
   return (
     <div>
