@@ -1,5 +1,5 @@
-import React from 'react'
-import Logo from '../../../public/bH-black.png'
+import React from "react";
+import Logo from "../../../public/bH-black.png";
 
 export default function Footer() {
   return (
@@ -9,16 +9,12 @@ export default function Footer() {
           <div className="w-auto">
             <a href="/">
               <div className="inline-flex items-center">
-               <img src={Logo} alt="logo" className='h-20'/>
+                <img src={Logo} alt="logo" className="h-20" />
               </div>
             </a>
           </div>
-          
-              
-            </div>
-          </div>
-       
-      
+        </div>
+      </div>
     </section>
-  )
+  );
 }

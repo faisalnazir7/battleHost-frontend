@@ -1,32 +1,32 @@
-import React, { useEffect,useState } from 'react'
-import { useParams } from 'react-router-dom'
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 const people = [
   {
-    name: 'John Doe',
-    title: 'Front-end Developer',
-    department: 'Engineering',
-    email: 'john@devui.com',
-    role: 'Developer',
+    name: "John Doe",
+    title: "Front-end Developer",
+    department: "Engineering",
+    email: "john@devui.com",
+    role: "Developer",
     image:
-      'https://images.unsplash.com/photo-1628157588553-5eeea00af15c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1160&q=80',
+      "https://images.unsplash.com/photo-1628157588553-5eeea00af15c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1160&q=80",
   },
- 
-]
+];
 
 export default function ParticipantData() {
-  const {tournamentId}=useParams()
-  const [data,setData]=useState([])
-  const tournamentDetails=async()=>{
-      const response=await fetch(`${import.meta.env.VITE_SERVER_URL}/api/tournament/${tournamentId}`)
-      const data=await response.json()
-      // console.log(data.getTournamentDetails[0])
-      // setTournamentData(data.getTournamentDetails[0])
-      setData(data.getTournamentDetails[0].participants)
-      
-    }
-  useEffect(()=>{
-    tournamentDetails()
-  },[])
+  const { tournamentId } = useParams();
+  const [data, setData] = useState([]);
+  const tournamentDetails = async () => {
+    const response = await fetch(
+      `${import.meta.env.VITE_SERVER_URL}/api/tournament/${tournamentId}`
+    );
+    const data = await response.json();
+    // console.log(data.getTournamentDetails[0])
+    // setTournamentData(data.getTournamentDetails[0])
+    setData(data.getTournamentDetails[0].participants);
+  };
+  useEffect(() => {
+    tournamentDetails();
+  }, []);
   return (
     <>
       <section className="mx-auto w-3/4 max-w-7xl px-4 py-4  md:ml-12 md:mt-12 mt-20 -ml-56">
@@ -34,12 +34,11 @@ export default function ParticipantData() {
           <div>
             <h2 className="text-lg font-semibold">Participants</h2>
             <p className="mt-1 text-sm text-gray-700">
-              This is a list of all the participants for tournament. You can add, manage them using this dashboard.
+              This is a list of all the participants for tournament. You can
+              add, manage them using this dashboard.
             </p>
           </div>
-          <div>
-          
-          </div>
+          <div></div>
         </div>
         <div className="mt-6 flex flex-col">
           <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -92,29 +91,36 @@ export default function ParticipantData() {
                               />
                             </div>
                             <div className="ml-4">
-                              <div className="text-sm font-medium text-gray-900">{person?.name}</div>
-                              <div className="text-sm text-gray-700">{person?.user?.email}</div>
+                              <div className="text-sm font-medium text-gray-900">
+                                {person?.name}
+                              </div>
+                              <div className="text-sm text-gray-700">
+                                {person?.user?.email}
+                              </div>
                             </div>
                           </div>
                         </td>
                         <td className="whitespace-nowrap px-12 py-4">
-                          <div className="text-sm text-gray-900 ">{person?.teamName? person?.teamName:"------"}</div>
-                          <div className="text-sm text-gray-700">{person.department}</div>
+                          <div className="text-sm text-gray-900 ">
+                            {person?.teamName ? person?.teamName : "------"}
+                          </div>
+                          <div className="text-sm text-gray-700">
+                            {person.department}
+                          </div>
                         </td>
                         <td className="whitespace-nowrap px-4 py-4">
                           <span className="inline-flex rounded-full bg-green-100 px-2 text-xs font-semibold leading-5 text-green-800">
-                           {person?.registrationType}
+                            {person?.registrationType}
                           </span>
                         </td>
                         <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-700">
-                        {person?.teamMembers?.length>0?
-                        person?.teamMembers?.map(member=>( 
-                        <li>{member}</li>
-                        )
-                        )
-                        :
-                        <>{"------"}</>
-                    }
+                          {person?.teamMembers?.length > 0 ? (
+                            person?.teamMembers?.map((member) => (
+                              <li>{member}</li>
+                            ))
+                          ) : (
+                            <>{"------"}</>
+                          )}
                         </td>
                         <td className="whitespace-nowrap px-4 py-4 text-right text-sm font-medium">
                           <a href="#" className="text-gray-700">
@@ -131,5 +137,5 @@ export default function ParticipantData() {
         </div>
       </section>
     </>
-  )
+  );
 }

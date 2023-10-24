@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState } from "react";
 import Navbar from "../../Components/Navbar/Navbar";
 import SampleUser from "../../assets/sampleuser.png";
 import { useNavigate } from "react-router-dom";
-import { Toaster,toast } from "react-hot-toast";
+import { Toaster, toast } from "react-hot-toast";
 function UserProfile() {
   const image = useRef();
   const navigator = useNavigate();
@@ -11,37 +11,43 @@ function UserProfile() {
       navigator("/signin");
     }
   }, []);
-  
+
   const [name, setName] = useState(
     JSON.parse(localStorage.getItem("user_data"))?.name
   );
   const [phone, setPhone] = useState(
     JSON.parse(localStorage.getItem("user_data"))?.phone
   );
-  const [img,setImg]=useState(JSON.parse(localStorage.getItem("user_data"))?.photo)
-  const [isChanged,setIsChanged]=useState(false)
-  const [url,setUrl]=useState("")
-  const updateUser=async()=>{
-    const response=await fetch(`${import.meta.env.VITE_SERVER_URL}/api/users/updateuser`,{
-        method:'PATCH',
-        headers:{
-          'Content-Type':'application/json'
+  const [img, setImg] = useState(
+    JSON.parse(localStorage.getItem("user_data"))?.photo
+  );
+  const [isChanged, setIsChanged] = useState(false);
+  const [url, setUrl] = useState("");
+  const updateUser = async () => {
+    const response = await fetch(
+      `${import.meta.env.VITE_SERVER_URL}/api/users/updateuser`,
+      {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
         },
-        body:JSON.stringify({
-            name:name,
-            phone:phone,
-            photo:url?url:JSON.parse(localStorage.getItem("user_data"))?.photo
+        body: JSON.stringify({
+          name: name,
+          phone: phone,
+          photo: url
+            ? url
+            : JSON.parse(localStorage.getItem("user_data"))?.photo,
         }),
-    credentials:'include'
-    })
-    const data=await response.json()
-    if(!data.message){
-    localStorage.setItem('user_data',JSON.stringify(data))
-    navigator('/profile')
-    toast.success("Profile Updated Successfully")
+        credentials: "include",
+      }
+    );
+    const data = await response.json();
+    if (!data.message) {
+      localStorage.setItem("user_data", JSON.stringify(data));
+      navigator("/profile");
+      toast.success("Profile Updated Successfully");
     }
-   
-  }
+  };
   const loadFile = (e) => {
     let output = document.getElementById("output");
     output.src = URL.createObjectURL(e.target.files[0]);
@@ -65,11 +71,11 @@ function UserProfile() {
       })
       .catch((err) => console.log(err));
   };
-  useEffect(()=>{
-if(url){
-  updateUser()
-}
-  },[url])
+  useEffect(() => {
+    if (url) {
+      updateUser();
+    }
+  }, [url]);
   return (
     <>
       <Navbar />
@@ -78,7 +84,11 @@ if(url){
           <div className="mt-20 ml-16 md:mb-5 md:ml-40">
             <img
               className="md:w-72 w-40 inline-block md:ml-6 shadow-lg rounded-full cursor-pointer"
-              src={JSON.parse(localStorage.getItem('user_data'))?.photo?JSON.parse(localStorage.getItem('user_data'))?.photo:SampleUser}
+              src={
+                JSON.parse(localStorage.getItem("user_data"))?.photo
+                  ? JSON.parse(localStorage.getItem("user_data"))?.photo
+                  : SampleUser
+              }
               alt=""
               onClick={() => image.current.click()}
               id="output"
@@ -88,10 +98,10 @@ if(url){
               accept="image/*"
               style={{ display: "none" }}
               ref={image}
-              onChange={(e)=>{
-                loadFile(e)
-                setImg(e.target.files[0])
-                setIsChanged(true)
+              onChange={(e) => {
+                loadFile(e);
+                setImg(e.target.files[0]);
+                setIsChanged(true);
               }}
             />
 
@@ -102,18 +112,22 @@ if(url){
         </div>
         <div className="profile_body  mb-10px px-10 py-2 border-2 rounded-md shadow-md m-auto md:mr-[10rem] mt-8 md:w-[45rem] w-11/12">
           <div className="profile_header">
-            <h1 className="md:text-3xl text-2xl text-center">Profile Settings</h1>
+            <h1 className="md:text-3xl text-2xl text-center">
+              Profile Settings
+            </h1>
           </div>
           <div className="mb-5">
-            <form className="mt-8" onSubmit={(e)=>{
-                e.preventDefault()
-                if(isChanged){
-                  sendImageToCloudinary()
+            <form
+              className="mt-8"
+              onSubmit={(e) => {
+                e.preventDefault();
+                if (isChanged) {
+                  sendImageToCloudinary();
+                } else {
+                  updateUser();
                 }
-                else{
-                  updateUser()
-                }
-            }}>
+              }}
+            >
               <div className="grid gap-6 mb-6 md:grid-cols-2">
                 <div>
                   <label
@@ -129,8 +143,9 @@ if(url){
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     // placeholder="John"
                     // required
-                    onChange={(e)=>{setName(e.target.value)
-                    // console.log(name)
+                    onChange={(e) => {
+                      setName(e.target.value);
+                      // console.log(name)
                     }}
                   />
                 </div>
@@ -144,7 +159,7 @@ if(url){
                   <input
                     type="email"
                     id="email"
-                    value={JSON.parse(localStorage.getItem('user_data'))?.email}
+                    value={JSON.parse(localStorage.getItem("user_data"))?.email}
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     // placeholder="john.doe@company.com"
                     required
@@ -166,7 +181,7 @@ if(url){
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     // placeholder="123-45-678"
                     // pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
-                    onChange={(e)=>setPhone(e.target.value)}
+                    onChange={(e) => setPhone(e.target.value)}
                     // required
                   />
                 </div>
