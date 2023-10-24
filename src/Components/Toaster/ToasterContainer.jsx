@@ -1,12 +1,11 @@
-import React from 'react'
-import { Toaster } from 'react-hot-toast'
+import React from "react";
+import { Toaster } from "react-hot-toast";
 function ToasterContainer() {
   return (
-    <div><Toaster
-    position="top-center"
-    reverseOrder={true}
-    /></div>
-  )
+    <div>
+      <Toaster position="top-center" reverseOrder={true} />
+    </div>
+  );
 }
 
-export default ToasterContainer
+export default ToasterContainer;

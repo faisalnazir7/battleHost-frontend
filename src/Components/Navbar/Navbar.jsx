@@ -16,9 +16,12 @@ export default function Navbar() {
     setTournaments(data.allTournaments);
   };
   const searchData = (search) => {
-    const filteredTournaments = tournaments?.filter((tournament) =>
-      tournament?.name?.toLowerCase().includes(search?.toLowerCase()) ||
-      tournament?.organizerId?.name?.toLowerCase().includes(search?.toLowerCase())
+    const filteredTournaments = tournaments?.filter(
+      (tournament) =>
+        tournament?.name?.toLowerCase().includes(search?.toLowerCase()) ||
+        tournament?.organizerId?.name
+          ?.toLowerCase()
+          .includes(search?.toLowerCase())
     );
     return filteredTournaments;
   };

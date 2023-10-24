@@ -1,26 +1,27 @@
-.Navbar,.Search{
-    display: flex;
+.Navbar,
+.Search {
+  display: flex;
 }
-.dark .Navbar{
-    --tw-bg-opacity: 1;
-    background-color: rgb(31 41 55/var(--tw-bg-opacity));
+.dark .Navbar {
+  --tw-bg-opacity: 1;
+  background-color: rgb(31 41 55 / var(--tw-bg-opacity));
 }
-.More{
-    display: none;
+.More {
+  display: none;
 }
-.MoreOptions{
-    display: none;
+.MoreOptions {
+  display: none;
 }
 
-
-@media(max-width:991px){
-    .More{
-        display: block;
-    }
-    .LogInbtn,.RegisterBtn{
-        display: none;
-    }
-    .MoreOptions{
-        display: block;
-    }
+@media (max-width: 991px) {
+  .More {
+    display: block;
+  }
+  .LogInbtn,
+  .RegisterBtn {
+    display: none;
+  }
+  .MoreOptions {
+    display: block;
+  }
 }

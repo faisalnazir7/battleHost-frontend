@@ -1,2 +1,2 @@
-const sidebarExceptions=["/signup","/signin"]
-export default sidebarExceptions
+const sidebarExceptions = ["/signup", "/signin"];
+export default sidebarExceptions;
