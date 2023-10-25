@@ -15,7 +15,7 @@ const Profile = () => {
       <Navbar />
       <div className="UserProfile block md:flex">
         <div className="userprofileLeft text-center">
-          <div className="mt-20 ml-16 md:mb-5 md:ml-40">
+          <div className="mt-20 ml-16 mr-8 md:mb-5 md:ml-40">
             <img
               className="md:w-72 w-40 inline-block md:ml-6 shadow-lg rounded-full cursor-pointer"
               src={
@@ -24,7 +24,7 @@ const Profile = () => {
                   : SampleUser
               }
               alt=""
-            />
+            style={{ maxHeight: '50%' , maxWidth:'80%'}}/>
 
             <div className="font-medium dark:text-white text-xl md:text-3xl mt-12 text-center ">
               <div>{JSON.parse(localStorage.getItem("user_data"))?.name}</div>
