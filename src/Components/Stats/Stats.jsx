@@ -29,7 +29,7 @@ getTotalUsers()
     },[])
   return (
     <div className="Stats flex flex-wrap justify-center m-6">
-    <Card animationData={Cup} heading={"Tournaments Registered"} count={noOfTournaments} isLoop={false}/>
+    <Card animationData={Cup} heading={"Tournaments Registered"} count={noOfTournaments} isLoop={true}/>
     <Card animationData={Live} heading={"Live Tournaments"} count={liveTournamentCount} isLoop={true}/>
     <Card animationData={People} heading={"Users Active"} count={totalUsers} isLoop={true} width={"full"}/>
     </div>
