@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Navbar from "../../Components/Navbar/Navbar";
 import Tournaments from "../../Components/Tournaments/Tournaments";
 import { useNavigate } from "react-router-dom";
+import Stats from "../../Components/Stats/Stats";
 
 export default function Dasboard() {
   const navigator = useNavigate();
@@ -13,6 +14,7 @@ export default function Dasboard() {
   return (
     <>
       <Navbar />
+      <Stats/>
       <Tournaments />
     </>
   );
