@@ -1,17 +1,18 @@
-import { ArrowUpRight } from 'lucide-react'
-import React from 'react'
-import Lottie from 'lottie-react'
-export default function Card({animationData, heading, count, isLoop,width}) {
+import { ArrowUpRight } from "lucide-react";
+import React from "react";
+import Lottie from "lottie-react";
+export default function Card({ animationData, heading, count, isLoop, width }) {
   return (
     <div className="flex max-w-2xl flex-col items-center rounded-md border md:flex-row shadow-lg mx-10 mb-10">
-      <div className={`h-fit w-fit md:h-[200px] md:w-[${width?width:"150px"}]`}>
-        
+      <div
+        className={`h-fit w-fit md:h-[200px] md:w-[${width ? width : "150px"}]`}
+      >
         <Lottie
-        animationData={animationData}
-        loop={isLoop}
-        autoplay
-        className='h-full w-fit rounded-md object-cover'
-      />
+          animationData={animationData}
+          loop={isLoop}
+          autoplay
+          className="h-full w-fit rounded-md object-cover"
+        />
       </div>
       <div>
         <div className="p-4">
@@ -21,11 +22,11 @@ export default function Card({animationData, heading, count, isLoop,width}) {
           <p className="mt-3 text-2xl text-gray-600">
             <b>{count}</b>
           </p>
-          <div className="mt-9 flex items-center space-x-2">
+          {/* <div className="mt-9 flex items-center space-x-2">
             <p><b className='color-green-400'>+55%</b> more than last week</p>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
-  )
+  );
 }
