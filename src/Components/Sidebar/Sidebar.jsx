@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import './Sidebar.css'
 import {
   BarChart,
   Wallet,
@@ -53,7 +54,7 @@ export function Sidebar() {
   return (
     <>
       <aside
-        className={`w-${
+        className={`Sidebar w-${
           isExpanded ? "64" : "20"
         } flex fixed h-screen z-10  flex-col overflow-y-auto border-r bg-black bg-opacity-80 px-5 py-8 transition-width duration-300`}
         onMouseEnter={handleSidebarToggle}
