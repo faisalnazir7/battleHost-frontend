@@ -35,7 +35,7 @@ export default function ManageCard() {
     getTournamentData();
   }, []);
   return (
-    <div className="flex w-4xl h-4xl flex-col items-center rounded-md border md:flex-row mt-2 md:mt-20 md:ml-36 ">
+    <div className="flex w-4xl h-4xl flex-col items-center rounded-md border md:flex-row mt-2 md:mt-20">
       <div className="h-full w-full md:ml-8 md:h-[200px] md:w-[300px]">
         <img
           src={tournamentData?.bannerImg}
