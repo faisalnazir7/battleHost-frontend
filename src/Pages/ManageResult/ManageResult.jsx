@@ -11,7 +11,7 @@ export default function ManageResult() {
         <SideNav />
         <div className="md:ml-12 md:mt-14 mt-20 -ml-56">
           <div className="ManageResultContent border-b">
-            <h2 className="text-xl font-semibold">Results</h2>
+            <h2 className="text-xl font-semibold p-2">Results</h2>
           </div>
           <div>
             <ResultManageCard />
