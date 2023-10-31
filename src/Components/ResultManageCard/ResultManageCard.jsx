@@ -34,13 +34,13 @@ export default function ResultManageCard() {
     }
   };
   return (
-    <div className="flex w-4xl h-4xl flex-col items-center w-80 md:w-[50rem] rounded-md border md:flex-row  mt-6 md:ml-8">
-      <div className="h-full w-full ml-8 md:h-[427px] md:w-[400px]">
+    <div className="flex w-4xl h-4xl flex-col items-center w-80 md:w-[50rem] rounded-md border md:flex-row  mt-6">
+      <div className="h-full w-full ml-8 md:h-[427px] md:w-[350px] p-2">
         <img src={img} alt="" id="output" className="h-[22rem] mt-8" />
       </div>
 
       <div>
-        <div className="md:ml-12 w-[18rem]">
+        <div className="md:ml-12 w-[20rem] p-2">
           <label htmlFor="Winner">Winner</label>
           <input
             type="text"
