@@ -12,7 +12,7 @@ export default function SideNav() {
   }, [location.pathname]);
 
   return (
-    <aside className="flex  w-64 flex-col md:overflow-y-auto border-b md:border-r bg-white md:px-5 md:py-8 -mt-8 mb-12 md:mt-0 md:mb-0">
+    <aside className="flex h-6/6 w-64 flex-col md:overflow-y-auto border-b md:border-r bg-white md:px-5 md:py-8 -mt-8 mb-12 md:mt-0 md:mb-0">
       <div className="mt-6 flex flex-1 flex-col justify-between">
         <nav className="mx-3 space-y-6 ">
           <div className="space-y-8 flex justify-between md:block">
