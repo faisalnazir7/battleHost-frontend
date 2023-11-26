@@ -13,28 +13,33 @@ export default function SignUp() {
   const [error, setError] = useState("");
   const navigator = useNavigate();
   const SignUp = async () => {
-    const response = await fetch(
-      `${import.meta.env.VITE_SERVER_URL}/api/users/register`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: userName,
-          email: email,
-          password: password,
-          role: role,
-        }),
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_SERVER_URL}/api/users/register`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: userName,
+            email: email,
+            password: password,
+            role: role,
+          }),
+          credentials: "include",
+        }
+      );
+      const data = await response.json();
+      if (!data.message) {
+        localStorage.setItem("user_data", JSON.stringify(data));
+        navigator("/");
+        document.cookie = `token=${data.token}; path=/;`;
+      } else {
+        setError(data.message);
       }
-    );
-    const data = await response.json();
-    if (!data.message) {
-      localStorage.setItem("user_data", JSON.stringify(data));
-      navigator("/");
-      document.cookie = `token=${data.token}; path=/;`;
-    } else {
-      setError(data.message);
+    } catch (error) {
+      setError(error.message || "An error occurred");
     }
   };
   return (
