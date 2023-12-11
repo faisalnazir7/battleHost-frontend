@@ -49,17 +49,20 @@ export default function ManageCard() {
           <h1 className="inline-flex items-center text-lg font-semibold">
             {tournamentData?.name}
           </h1>
-          <p className="mt-3 text-sm text-gray-600">
-            {tournamentData?.description}
+          <p className="text-sm text-gray-600">{tournamentData?.description}</p>
+          <p className="mt-4 text-lg text-dark">
+            Tournament Rules:
+            <p className="text-sm text-gray-600">{tournamentData?.rules}</p>
           </p>
-          <p className="mt-3 text-sm text-gray-600">Tournament Rules</p>
           <div className="flex">
             <div className="mt-4 -mr-24 md:mr-0">
-              <p className="mt-3 text-sm text-gray-600">
-                Start Date: {dateFormatter(tournamentData?.startDateTime, 0)}
+              <p className="text-sm text-gray-600">
+                <p className="text-lg text-dark">Start Date: </p>
+                {dateFormatter(tournamentData?.startDateTime, 0)}
               </p>
               <p className="mt-3 text-sm text-gray-600">
-                End Date: {dateFormatter(tournamentData?.endDateTime, 0)}
+                <p className="text-lg text-dark">End Date: </p>{" "}
+                {dateFormatter(tournamentData?.endDateTime, 0)}
               </p>
             </div>
             <div className="ml-32 mt-8 flex">
